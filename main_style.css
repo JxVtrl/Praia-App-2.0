@@ -106,12 +106,14 @@ input:focus{
     display: flex;
 }
 
-#form-input{
+.form{
     border: var(--input-border-color);
-    border-right: none;
 
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    border-radius: 10px;
+    
+    height: 30px;
+
+    margin-bottom: 15px;
     
     color: #000;
     background: transparent;
@@ -120,19 +122,24 @@ input:focus{
     padding-left: 10px;
 }
 
-#form-input::placeholder{
+.form::placeholder{
     color: rgb(54, 54, 54);
     font-size: var(--font-size-main);
     font-weight: 500;
     
 }
 
+.form-container{
+    display: flex;
+    flex-direction: column;
+}
+
 #btn-container{
     width: 70px;
     height: 30px;
     border: var(--input-border-color);
-    border-left: none;
     align-items: center;
+    margin: 0 auto;
 }
 
 #form-span{
@@ -151,9 +158,8 @@ input:focus{
     
 }
 
-#form-btn{
+.form-btn{
     border: var(--input-border-color);
-    border-left: none;
     
     background: rgb(255, 255, 255);
     -webkit-mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/nature-sprite.png");
@@ -164,18 +170,18 @@ input:focus{
     width: 70px;
     height: 30px;
 
-    padding:  0.5rem 1rem;
+    padding:  0.5rem 1rem 0.5rem 0.9rem;
     cursor: pointer;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-radius: 10px;
     
     font-family: var(--font-main);
     font-weight: 500;
     font-size: 14px;
     line-height: 1.15;
+    
 }
 
-#form-btn:hover{
+.form-btn:hover{
     animation: animation 1.05s steps(22) forwards infinite;
 }
 
@@ -199,6 +205,16 @@ input:focus{
         -webkit-mask-position: 0 0;
         mask-position: 0 0;
     }
+}
+
+#cadastro{
+    cursor: pointer;
+    margin: 15px auto 0;
+
+}
+
+#cadastro:hover{
+    text-decoration: underline;
 }
 
 /* Nav Bar ================= */
