@@ -1,25 +1,42 @@
-## Praia App
-*   Lembretes
-*   Caminhos Lógicos
-*   Próximos Passos
+# Praia App
+
+<code>
+const Criadores =[
+    {
+        Nome: "João Vinicius Vitral",
+        Github: "https://github.com/JxVtrl/",
+    },
+    {
+        luizcipriano: "Luiz Cipriano",
+        Github: "https://github.com/luizcipriano/",
+    }
+]
+</code>
+
+
+
+>   Lembretes
+>   Ferramentas
+>   Caminhos Lógicos
+>   Próximos Passos
 
 ### APIs Usadas
-    [] Google Maps
-        -
+    - Google Identity Toolkit (Firebase)
+    - Google Maps
 
 
 ### Landing Page
     [✔] Design
     [✔] Inputs
-    [] JS Inputs
+    [✔] JS Inputs
     [] *Credenciamento*
-        - Login Interno
+        ✔ Login Interno
         - Login Via Google, Facebook, etc
 
 ### Main Page
     [] Menu    
-        - Web
-        - App
+        * Web
+        * App
     [] Background
         - Mudança com o tempo atual
     [] Icones
@@ -29,25 +46,25 @@
 
     
     [] Informações
-        -- Web
-            - Olá
-            - Local
-            - Estado do Céu
-            - Vento
-            - Temperatura
-            - Pressão
-            - Umidade
-            - Sensação Térmica
-            - Sol
-        -- App
-            - Olá
-            - Local
-            - Estado do Céu
-            - Temperatura
-            ? - Sensação ?
-            - Sol
+        1. Web
+            * Olá
+            * Local
+            * Estado do Céu
+            * Vento
+            * Temperatura
+            * Pressão
+            * Umidade
+            * Sensação Térmica
+            * Sol
+        2. App
+            * Olá
+            * Local
+            * Estado do Céu
+            * Temperatura
+            * ? Sensação ?
+            * Sol
 
 ### Barracas Page
     [] Mapa
     [] Lista de Barracas Favoritadas
-    []
+
