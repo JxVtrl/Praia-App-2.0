@@ -23,9 +23,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     }
 });
 
-
-function login(event) {
-    event.preventDefault();
+function logIn(){
 
     var email       = document.getElementById("email").value;       //  joaoviniciusvitral@hotmail.com
     var password    = document.getElementById("password").value;   //  comoFicarRico
@@ -40,13 +38,10 @@ function login(event) {
             document.getElementById("password").style.borderColor = "red";
         }
     }else{
-        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-            // Handle Errors here.
-            console.log(error.code);
-            alert(error.message);
-
-        // Se não houver erro
-        }).then(function(user){
+        firebase.auth().signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+            // Signed in
+            var user = userCredential.user;
             if(user){
                 document.getElementById("email").style.border = "2px solid" 
                 document.getElementById("email").style.borderColor = "green";
@@ -56,6 +51,11 @@ function login(event) {
                 console.log('User logged');
             }
         })
+        .catch((error) => {
+            // Handle Errors here.
+            console.log(error.code);
+            alert(error.message);
+        });
     }
 }
 
@@ -98,10 +98,29 @@ function signIn(){
             document.getElementById("nome-cadastro").style.borderColor = "red";
         }
     }
-
-    firebase.auth().createUserWithEmailAndPassword(email_cadastro, password_cadastro).then(function() {
-        document.getElementById("message").innerHTML = 'User' + email + 'created';
+    else{
+        firebase.auth().createUserWithEmailAndPassword(email_cadastro, password_cadastro)
+        .then((userCredential) => {
+        // Signed in 
+        var user = userCredential.user;
+        console.log('User' + user + 'And' + email + 'created');
         location.reload();
-    });
+        })
+        .catch((error) => {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            console.log(errorCode + ' ' + errorMessage);
+
+            document.getElementById("nome-cadastro").style.border = "2px solid" 
+            document.getElementById("nome-cadastro").style.borderColor = "red";
+
+            document.getElementById("email-cadastro").style.border = "2px solid" 
+            document.getElementById("email-cadastro").style.borderColor = "red";
+            
+            document.getElementById("password-cadastro").style.border = "2px solid" 
+            document.getElementById("password-cadastro").style.borderColor = "red";
+        });
+
+    }
 
 }
