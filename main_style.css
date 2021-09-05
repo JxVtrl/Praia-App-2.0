@@ -32,6 +32,7 @@
 img{
     max-width: 100%;
     height: auto;
+    cursor: pointer;
 }
 
 body{
@@ -129,7 +130,7 @@ input:focus{
     
 }
 
-.form-container{
+.form-container, .form-container form{
     display: flex;
     flex-direction: column;
 }
@@ -283,6 +284,10 @@ input:focus{
     height: 50px;
 
     border-radius: 10px;
+}
+
+#img-pic:hover{
+    transform: scale(1.015);
 }
 
 
