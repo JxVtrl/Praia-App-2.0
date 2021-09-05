@@ -26,18 +26,12 @@ function getTimeNow(){
     let tempo = formatNumber(h) + ":" + formatNumber(m) + ":" + formatNumber(s);
 }
 
-///////////////////////////////////////
-// Getting User Initial Information //
-///////////////////////////////////////
-
-    // Variables //
-    
-    const span_nome = document.getElementById('name')
-
-    // Button Click Event //
-    
-
-    // Check if user is already logged in //
+////////////////////
+// Open user menu //
+////////////////////
+function openUserMenu(){
+    alert("User Menu")
+}
     
 
 /////////////////////////
