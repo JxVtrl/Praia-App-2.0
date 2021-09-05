@@ -1,12 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Praia 2.0</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    
+    <link rel="stylesheet" href="main_style.css">
 </head>
 <body>
+    
+    <!--- Landing Page -->
+    <div id="landing-background" class="hide">
+        <div id="landing-card">
+            <img src="midia/coconut.ico" alt="coquin">
+            <h2 class="titles-h2">Olá, qual é seu nome?</h2>
+            <div id="landing-form">
+                <input type="text" placeholder="Digite aqui seu nome" id="form-input">
+                <div id="btn-container">
+                    <span id="form-span">Enviar</span>
+                    <button id="form-btn" type="button">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- Main Page-->
+    <main>
+        <!--- Menu -->
+        <nav id="nav-bar">
+            <ul>
+                <li>
+                    <a href="#">
+                        <ion-icon name="today-outline"></ion-icon>
+                        <span>Hoje</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <ion-icon name="trail-sign-outline"></ion-icon>
+                        <span>Barracas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span>Esportes</span>
+                    </a>
+                </li>
+                <li>
+                    <img alt="img-perfil" src="midia/et.ico" id="img-pic">
+                </li>
+            </ul>
+
+        </nav>
+
+    </main>
+
+
+
+
+
+    <script src="landing/js/landing_script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
