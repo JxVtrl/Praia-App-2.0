@@ -58,8 +58,10 @@ input:focus{
     text-align: center;
 }
 
-/* Landing ================= */
+/* Landing Page ================= */
 #landing-background{
+    position: fixed;
+    
     background: rgb(252,176,69);
     background: linear-gradient(352deg, rgba(252,176,69,1) 0%, rgba(29,177,253,1) 48%, rgba(252,176,69,1) 100%);
 
@@ -199,7 +201,7 @@ input:focus{
     }
 }
 
-/* Main ================= */
+/* Nav Bar ================= */
 
 #nav-bar{
     font-family: var(--font-main);
@@ -210,9 +212,23 @@ input:focus{
     height: 10vh; 
 
     display: flex;
+
+    animation: nav-load 3s forwards;
 }
 
-#nav-bar ul{
+@keyframes nav-load{
+    0%{
+        transform: translateY(-150px);
+    }
+    40%{
+        transform: translateY(-150px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+
+#nav-list{
     width: 100%;
 
     display: flex;
@@ -224,19 +240,26 @@ input:focus{
     
 }
 
-#nav-bar ul li{
-    
-}
-
-#nav-bar ul li a{
+#nav-list li a{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-items: center;
 
     width: calc(100% + 15px);
-    align-items: center;
+    height: 55px;
     
     text-decoration: none;
+    cursor: pointer;
+}
+
+.icon-size{
+    width: 20px;
+    height: 20px;
+}
+
+.nav-item-title{
+    font-weight: 600;
 }
 
 #img-pic{
@@ -247,3 +270,5 @@ input:focus{
 }
 
 
+/* Main Content ================= */
+    /* Nav Bar ================= */
