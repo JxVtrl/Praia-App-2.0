@@ -1,72 +1,65 @@
+
 var config = {
     apiKey: "AIzaSyA9kSpOTVc6FyMm-C0P4-bzuukuEJAEsN4",
     authDomain: "praia-app-2.firebaseapp.com",
 };
-window.onload = function() {
-    firebase.initializeApp(config);
-};
 
-const main = document.getElementById('main');
-const landing = document.getElementById('landing');
+firebase.initializeApp(config);
 
-
-document.getElementById('login').addEventListener('click', () => {
-
-    let email       //  joaoviniciusvitral@hotmail.com
-    let password    //  comoFicarRico
-    let errorCode, errorMessage, log;
+firebase.auth().onAuthStateChanged(function(user) {
     
-    email = document.getElementById("email").value;
-    password = document.getElementById("password").value;
+    var landing = document.getElementById('landing');
+    var main = document.getElementById('main');
 
-    if(email == "" || password == ""){
-        if(email == ""){
+    if (user) {
+        // User is signed in.
+        main.style.display = "block";
+        landing.style.display = "none";
+    
+    } else {
+        // No user is signed in.
+        main.style.display = 'none';
+        landing.style.display = 'block';
+    }
+});
+
+
+function login(event) {
+    event.preventDefault();
+
+    var email       = document.getElementById("email").value;       //  joaoviniciusvitral@hotmail.com
+    var password    = document.getElementById("password").value;   //  comoFicarRico
+    
+    if(email === "" || password === "" || email < 5 || password < 5){
+        if(email === "" || email < 5){
             document.getElementById("email").style.border = "2px solid" 
             document.getElementById("email").style.borderColor = "red";
         }
-        if(password == ""){
+        if(password === "" || password < 5){
             document.getElementById("password").style.border = "2px solid" 
             document.getElementById("password").style.borderColor = "red";
         }
     }else{
         firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
             // Handle Errors here.
-            errorCode = error.code;
-            errorMessage = error.message;
-            
-            console.log(errorCode);
-            console.log(errorMessage);
-            // Wrong Password Error
-            if (errorCode) {
-                document.getElementById("password").style.border = "2px solid" 
-                document.getElementById("password").style.borderColor = "red";
-            }
-        });
-        
-        firebase.auth().onAuthStateChanged(function(user) {
-            if (user) {
-                if(errorCode === undefined){
-                    document.getElementById("email").style.border = "2px solid" 
-                    document.getElementById("email").style.borderColor = "green";
-                    document.getElementById("password").style.border = "2px solid" 
-                    document.getElementById("password").style.borderColor = "green";      
-    
-                    setTimeout(showMain(), 2000);
-                }
-    
-            } else {
-                alert('not logged')
-            }
-        });
-    }
-    
-})
+            console.log(error.code);
+            alert(error.message);
 
-function showMain(){
-    landing.classList.add('hide');
-    main.classList.remove('hide');
+        // Se não houver erro
+        }).then(function(user){
+            if(user){
+                document.getElementById("email").style.border = "2px solid" 
+                document.getElementById("email").style.borderColor = "green";
+                document.getElementById("password").style.border = "2px solid" 
+                document.getElementById("password").style.borderColor = "green"; 
+
+                console.log('User logged');
+            }
+        })
+    }
 }
 
+// TROCA DE LOGIN PRA CADASTRO
 document.getElementById('cadastro').addEventListener('click', () => {
     let login_section = document.getElementById('login-section');
     let cadastro_section = document.getElementById('cadastro-section');
@@ -75,7 +68,18 @@ document.getElementById('cadastro').addEventListener('click', () => {
     cadastro_section.style.display = 'block';
 })
 
-async function signIn(){
+// LOG OUT
+function logout() {
+    firebase.auth().signOut().then(function() {
+        document.getElementById("message").innerHTML = "Signed out";
+        clearForm()
+    }).catch(function(error) {
+        document.getElementById("message").innerHTML = error.message;
+    })
+}
+
+// SIGN IN
+function signIn(){
     let email_cadastro = document.getElementById("email-cadastro").value;
     let password_cadastro = document.getElementById("password-cadastro").value;
     let nome_cadastro = document.getElementById('nome-cadastro').value;
@@ -100,13 +104,4 @@ async function signIn(){
         location.reload();
     });
 
-}
-
-function logout() {
-    firebase.auth().signOut().then(function() {
-        document.getElementById("message").innerHTML = "Signed out";
-        clearForm()
-    }).catch(function(error) {
-        document.getElementById("message").innerHTML = error.message;
-    })
 }
