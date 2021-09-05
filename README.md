@@ -14,10 +14,10 @@ const Criadores =[
 ```
 
 
->   Lembretes
->   Ferramentas
->   Caminhos Lógicos
->   Próximos Passos
+*   Lembretes
+*   Ferramentas
+*   Caminhos Lógicos
+*   Próximos Passos
 
 ### APIs Usadas
     - Google Identity Toolkit (Firebase)
