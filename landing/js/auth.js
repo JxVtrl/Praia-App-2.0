@@ -1,13 +1,22 @@
-
-var config = {
-    apiKey: "AIzaSyA9kSpOTVc6FyMm-C0P4-bzuukuEJAEsN4",
-    authDomain: "praia-app-2.firebaseapp.com",
-};
-
-firebase.initializeApp(config);
-
-firebase.auth().onAuthStateChanged(function(user) {
+// Função Anonima config para o firebase
+(function(){
+    // Your web app's Firebase configuration
+    var config = {
+        apiKey: "AIzaSyA9kSpOTVc6FyMm-C0P4-bzuukuEJAEsN4",
+        authDomain: "praia-app-2.firebaseapp.com",
+        databaseURL: "https://praia-app-2-default-rtdb.firebaseio.com",
+        projectId: "praia-app-2",
+        storageBucket: "praia-app-2.appspot.com",
+        messagingSenderId: "1069341547607",
+        appId: "1:1069341547607:web:cc867f4e3fed72e86a1712"
+    };
     
+    // Initialize Firebase
+    firebase.initializeApp(config);
+})()
+
+// Identifica se o usuário está logado
+firebase.auth().onAuthStateChanged(function(user) {
     var landing = document.getElementById('landing');
     var main = document.getElementById('main');
 
@@ -80,10 +89,9 @@ document.getElementById('cadastro').addEventListener('click', () => {
 // LOG OUT
 function logout() {
     firebase.auth().signOut().then(function() {
-        document.getElementById("message").innerHTML = "Signed out";
-        clearForm()
+        console.log("Signed out");
     }).catch(function(error) {
-        document.getElementById("message").innerHTML = error.message;
+        console.log(error.message);
     })
 }
 
@@ -110,10 +118,11 @@ function signIn(){
     else{
         firebase.auth().createUserWithEmailAndPassword(email_cadastro, password_cadastro)
         .then((userCredential) => {
-        // Signed in 
-        var user = userCredential.user;
-        console.log('User' + user + 'And' + email + 'created');
-        location.reload();
+            // Signed in 
+            var user = userCredential.user;
+
+            // chamada do banco de dados
+            addDataBase(user, email_cadastro, nome_cadastro);
         })
         .catch((error) => {
             var errorCode = error.code;
@@ -130,4 +139,29 @@ function signIn(){
             document.getElementById("password-cadastro").style.borderColor = "red";
         });
     }
+}
+
+// Adicionar dados do usuário no banco de dados
+var db = firebase.firestore();
+function addDataBase(user, email, nome){
+
+    db.collection("usuários").doc(data.email).set({
+
+        name: nome,
+        first_name: firstName(nome),
+        email: email,
+        id: user.uid
+
+    }).then(() => {
+        console.log("Document written sucessfully!");
+    })
+    .catch((error) => {
+        console.error("Error writing document: ", error);
+    });
+}
+
+function firstName(name){
+    let name_split = name.split(' ');
+    
+    return name_split[0];
 }
