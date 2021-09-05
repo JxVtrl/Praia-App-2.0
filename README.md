@@ -20,7 +20,8 @@ const Criadores =[
 *   Próximos Passos
 
 ### APIs Usadas
-    - Google Identity Toolkit (Firebase)
+    - Google Identity Toolkit (Firebase Auth)
+    - Google Cloud Storage (Firestore Database)
     - Google Maps
 
 
@@ -31,6 +32,9 @@ const Criadores =[
     [] *Credenciamento*
         ✔ Login Interno
         - Login Via Google, Facebook, etc
+        - Verificar Email ao Cadastrar
+        - Salvar Nome e Email no Banco de Dados
+
 
 ### Main Page
     [] Menu    
