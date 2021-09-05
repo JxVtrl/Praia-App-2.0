@@ -59,7 +59,7 @@ input:focus{
 }
 
 /* Landing Page ================= */
-#landing-background{
+#landing{
     position: fixed;
     
     background: rgb(252,176,69);
@@ -176,7 +176,7 @@ input:focus{
 }
 
 #form-btn:hover{
-    animation: animation 0.8s steps(22) forwards infinite;
+    animation: animation 1.05s steps(22) forwards infinite;
 }
 
 @keyframes animation {
