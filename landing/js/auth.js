@@ -13,8 +13,17 @@ firebase.auth().onAuthStateChanged(function(user) {
 
     if (user) {
         // User is signed in.
-        main.style.display = "block";
-        landing.style.display = "none";
+        setTimeout(()=>{
+            main.style.display = "block";
+            landing.style.display = "none";
+
+            // Limpar valores do formulário
+            document.getElementById('email').value = ''
+            document.getElementById('password').value = ''
+            document.getElementById("email").style.border = 'none' 
+            document.getElementById("password").style.border = 'none' 
+
+        }, 3000)
     
     } else {
         // No user is signed in.
@@ -120,7 +129,5 @@ function signIn(){
             document.getElementById("password-cadastro").style.border = "2px solid" 
             document.getElementById("password-cadastro").style.borderColor = "red";
         });
-
     }
-
 }
