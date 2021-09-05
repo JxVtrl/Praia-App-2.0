@@ -31,33 +31,14 @@ function getTimeNow(){
 ///////////////////////////////////////
 
     // Variables //
-    const main = document.getElementById('main');
-    const landing = document.getElementById('landing');
+    
     const span_nome = document.getElementById('name')
 
     // Button Click Event //
-    function landingBtnClick(){
-        let nome = document.getElementById('form-input').value
-       
-        sessionStorage.setItem('name', formatText(nome))
-
-        landing.classList.add('hide');
-        main.classList.remove('hide');
-    }
+    
 
     // Check if user is already logged in //
-    if(sessionStorage.getItem('name')){
-        main.classList.remove('hide')
-        landing.classList.add('hide')
-        gratifyUser()
-    }
-    else{
-        const main = document.getElementById('main')
-        const landing = document.getElementById('landing')
-
-        landing.classList.remove('hide')
-        main.classList.add('hide')
-    }
+    
 
 /////////////////////////
 // Gratifying the user //
