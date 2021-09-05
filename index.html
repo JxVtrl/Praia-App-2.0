@@ -11,7 +11,7 @@
 <body>
     
     <!--- Landing Page -->
-    <div id="landing-background" class="hide">
+    <div id="landing" >
         <div id="landing-card">
             <img src="midia/coconut.ico" alt="coquin">
             <h2 class="titles-h2">Olá, qual é seu nome?</h2>
@@ -19,42 +19,65 @@
                 <input type="text" placeholder="Digite aqui seu nome" id="form-input">
                 <div id="btn-container">
                     <span id="form-span">Enviar</span>
-                    <button id="form-btn" type="button">Enviar</button>
+                    <button id="form-btn" type="button" onclick="landingBtnClick()">Enviar</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Main Page-->
-    <main>
-        <!--- Menu -->
+    <!-- Page Main -->
+    <div id="main" class="hide">
+        <!--- Nav Menu -->
         <nav id="nav-bar">
-            <ul>
+            <ul id="nav-list">
                 <li>
                     <a href="#">
-                        <ion-icon name="today-outline"></ion-icon>
-                        <span>Hoje</span>
+                        <ion-icon name="today-outline" class="icon-size"></ion-icon>
+                        <span class="nav-item-title">Hoje</span>
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <ion-icon name="trail-sign-outline"></ion-icon>
-                        <span>Barracas</span>
+                        <ion-icon name="trail-sign-outline" class="icon-size"></ion-icon>
+                        <span class="nav-item-title">Barracas</span>
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <span>Esportes</span>
+                        <ion-icon name="trophy-outline" class="icon-size"></ion-icon>
+                        <span class="nav-item-title">Esportes</span>
                     </a>
                 </li>
                 <li>
                     <img alt="img-perfil" src="midia/et.ico" id="img-pic">
                 </li>
             </ul>
-
         </nav>
 
-    </main>
+        <!--- Main Content -->
+        <main id="main-content">
+            
+            <!-- User Greetings -->
+            <h1 id="greeting-title">
+                <span id="greeting"></span>
+            </h1>
+
+            <!-- Actual Localization -->
+            <h1 id="title-home">
+                <span id="cidade"></span>
+            </h1>
+
+            <!-- Weather Icon -->
+            <div id="icone-tempo-container"></div>
+
+            <!-- Weather Description -->
+            <span id="descricao-tempo"></span>
+            
+    
+        
+        </main>
+
+    </div>
 
 
 
