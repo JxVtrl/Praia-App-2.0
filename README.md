@@ -1,18 +1,18 @@
 # Praia App
 
 <code>
-const Criadores =[
-    {
-        Nome: "João Vinicius Vitral",
-        Github: "https://github.com/JxVtrl/",
-    },
-    {
-        luizcipriano: "Luiz Cipriano",
-        Github: "https://github.com/luizcipriano/",
-    }
+const Criadores =[</br>
+    {</br>
+        Nome: "João Vinicius Vitral",</br>
+        Github: "https://github.com/JxVtrl/",</br>
+    },</br>
+    {</br>
+        luizcipriano: "Luiz Cipriano",</br>
+        Github: "https://github.com/luizcipriano/",</br>
+    }</br>
 ]
 </code>
-
+</br>
 
 
 >   Lembretes
