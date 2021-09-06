@@ -175,9 +175,8 @@ function addDataBase(user, email, nome){
 function firstName(name){
     let name_split = name.split(' ');
     
-    return name_split[0];
+    return name_split[0].charAt(0).toUpperCase() + name_split[0].slice(1);
 }
-
 
 // Gratificando o usuário
 function gratifyUser(user){
