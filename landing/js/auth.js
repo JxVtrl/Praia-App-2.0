@@ -38,6 +38,7 @@ window.addEventListener("load", function(){
                     document.getElementById("password").style.border = 'none' 
 
                 }, 2000)
+                gratifyUser(user)
         
         } else {
             // No user is signed in.
@@ -175,5 +176,48 @@ function firstName(name){
     let name_split = name.split(' ');
     
     return name_split[0];
+}
+
+
+// Gratificando o usuário
+function gratifyUser(user){
+    let hour = new Date().getHours();
+    let greeting_span = document.getElementById('greeting');
+    let greeting = '';
+    let nome
+
+    var doc_usuarios = db.collection('usuários').doc(user.email);
+
+    doc_usuarios.get().then((doc) => {
+        // Se ele achar o documento do usuário
+        if (doc.exists) {
+            console.log(doc.data().first_name)
+            console.log("Document data:", doc.data());
+
+            nome = doc.data().first_name;
+
+            if(hour >= 5 && hour < 12){
+                greeting = `Bom dia, ${nome}.`
+            }
+            else if(hour >= 12 && hour < 18){
+                greeting = `Boa tarde, ${nome}.`
+            }
+            else{
+                greeting = `Boa noite, ${nome}.`
+            }
+
+            greeting_span.innerHTML = greeting
+        
+        } else {
+            logout()
+            alert('Usuário não encontrado');
+        }
+    }).catch((error) => {
+        console.log("Error getting document:", error);
+    });
+
+    
+
+    
 }
 
