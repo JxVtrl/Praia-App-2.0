@@ -1,3 +1,8 @@
+
+    // ....
+
+
+
 // Função Anonima config para o firebase
 (function(){
     // Your web app's Firebase configuration
@@ -14,35 +19,35 @@
     // Initialize Firebase
     firebase.initializeApp(config);
 })()
+window.addEventListener("load", function(){
+    // Identifica se o usuário está logado
+    firebase.auth().onAuthStateChanged(function(user) {
+        var landing = document.getElementById('landing');
+        var main = document.getElementById('main');
 
-// Identifica se o usuário está logado
-firebase.auth().onAuthStateChanged(function(user) {
-    var landing = document.getElementById('landing');
-    var main = document.getElementById('main');
+        if (user) {
+            // User is signed in.
+                setTimeout(()=>{
+                    main.style.display = "block";
+                    landing.style.display = "none";
 
-    if (user) {
-        // User is signed in.
-        setTimeout(()=>{
-            main.style.display = "block";
-            landing.style.display = "none";
+                    // Limpar valores do formulário
+                    document.getElementById('email').value = ''
+                    document.getElementById('password').value = ''
+                    document.getElementById("email").style.border = 'none' 
+                    document.getElementById("password").style.border = 'none' 
 
-            // Limpar valores do formulário
-            document.getElementById('email').value = ''
-            document.getElementById('password').value = ''
-            document.getElementById("email").style.border = 'none' 
-            document.getElementById("password").style.border = 'none' 
-
-        }, 3000)
-    
-    } else {
-        // No user is signed in.
-        main.style.display = 'none';
-        landing.style.display = 'block';
-    }
+                }, 2000)
+        
+        } else {
+            // No user is signed in.
+            main.style.display = 'none';
+            landing.style.display = 'block';
+        }
+    });
 });
 
-function logIn(){
-
+function login(){
     var email       = document.getElementById("email").value;       //  joaoviniciusvitral@hotmail.com
     var password    = document.getElementById("password").value;   //  comoFicarRico
     
@@ -74,6 +79,7 @@ function logIn(){
             console.log(error.code);
             alert(error.message);
         });
+        
     }
 }
 
@@ -116,13 +122,19 @@ function signIn(){
         }
     }
     else{
+        // Faz o Cadastro
         firebase.auth().createUserWithEmailAndPassword(email_cadastro, password_cadastro)
         .then((userCredential) => {
-            // Signed in 
             var user = userCredential.user;
 
             // chamada do banco de dados
             addDataBase(user, email_cadastro, nome_cadastro);
+
+            // Envia email de verificação
+            user.sendEmailVerification().then(function() {
+                // Email sent.
+                console.log('Email sent');
+            })
         })
         .catch((error) => {
             var errorCode = error.code;
@@ -145,8 +157,7 @@ function signIn(){
 var db = firebase.firestore();
 function addDataBase(user, email, nome){
 
-    db.collection("usuários").doc(data.email).set({
-
+    db.collection("usuários").doc(email).set({
         name: nome,
         first_name: firstName(nome),
         email: email,
@@ -165,3 +176,4 @@ function firstName(name){
     
     return name_split[0];
 }
+
