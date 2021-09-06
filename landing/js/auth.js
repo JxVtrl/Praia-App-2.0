@@ -186,6 +186,7 @@ function gratifyUser(user){
     let greeting = '';
     let nome
 
+    // Pegando o documento do usuário
     var doc_usuarios = db.collection('usuários').doc(user.email);
 
     doc_usuarios.get().then((doc) => {
