@@ -191,19 +191,16 @@ function gratifyUser(user){
     doc_usuarios.get().then((doc) => {
         // Se ele achar o documento do usuário
         if (doc.exists) {
-            console.log(doc.data().first_name)
             console.log("Document data:", doc.data());
 
-            nome = doc.data().first_name;
-
             if(hour >= 5 && hour < 12){
-                greeting = `Bom dia, ${nome}.`
+                greeting = `Bom dia, ${doc.data().first_name}.`
             }
             else if(hour >= 12 && hour < 18){
-                greeting = `Boa tarde, ${nome}.`
+                greeting = `Boa tarde, ${doc.data().first_name}.`
             }
             else{
-                greeting = `Boa noite, ${nome}.`
+                greeting = `Boa noite, ${doc.data().first_name}.`
             }
 
             greeting_span.innerHTML = greeting
