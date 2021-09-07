@@ -13,14 +13,14 @@
 <body>
     
     <!--- Landing Page -->
-    <div id="landing" class="hide">
+    <div id="landing">
         <div id="landing-card">
             <img src="midia/coconut.ico" alt="coquin">
             <div id="landing-form">
                 <section id="login-section">
                     <h2 class="titles-h2">Olá, faça seu login.</h2>
                     <div class="form-container">
-                        <form>
+                        <form autocomplete="off">
                             <input type="text" name="username" placeholder="Usuário" class="form" id="username">
                             <input type="password" placeholder="Senha" class="form" id="password" autocomplete="on">
                             <div id="btn-container">
@@ -28,14 +28,15 @@
                                 <button class="form-btn" type="button" id="login" onclick="loginUser()">Enviar</button>
                             </div>
                         </form>
-                        <p id="cadastro-link">Cadastre-se Grátis</p>
+                        <p id="cadastro-link" class="login-link">Cadastre-se Grátis</p>
+                        <p id="esqueci-senha" class="login-link">Esqueci minha senha</p>
                     </div>
                 </section>
 
                 <section class="hide" id="cadastro-section">
                     <h2 class="titles-h2">Olá, faça seu cadastro.</h2>
                     <div class="form-container">
-                        <form>
+                        <form autocomplete="off">
                             <input type="text" name="nome" placeholder="Nome completo" class="form" id="nome-cadastro">
                             <input type="text" name="username" id="username-cadastro" class="form" placeholder="Nome de usuário">
                             <input type="email" name="email"  placeholder="Email" class="form" id="email-cadastro" autocomplete="email">
@@ -47,8 +48,20 @@
                                 <button class="form-btn" type="button" onclick="signIn(event)">Enviar</button>
                             </div>
                         </form>
-                        <p id="login-link">Já é cadastrado? Faça aqui seu login.</p>
+                        <p class="login-link" id="cadastro-back">Já é cadastrado? Faça aqui seu login.</p>
                     </div>
+                </section >
+
+                <section id="esqueci-section" class="hide">
+                    <h2 class="titles-h2">Esqueceu sua senha?</h2>
+                    <h3 class="titles-h3">Digite aqui seu email para que possamos enviar um email de restauração</h3>
+                    <input type="email" name="email" id="esqueci-email" class="form" placeholder="Digite aqui seu email">
+                    
+                    <div id="btn-container">
+                        <span id="form-span">Enviar</span>
+                        <button class="form-btn" type="button" onclick="esqueciSenha(event)">Enviar</button>
+                    </div>
+                    <p class="login-link" id="esqueci-back">Voltar</p>
                 </section>
             </div>
         </div>
