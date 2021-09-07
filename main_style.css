@@ -38,6 +38,7 @@ img{
 body{
     background-color: var(--main-color);
     width: 100%;
+    overflow-y: scroll;
 }
 
 input:focus{
