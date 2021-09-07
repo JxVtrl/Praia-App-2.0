@@ -103,22 +103,36 @@ function loginUser(){
     }
 }
 
-// TROCA DE LOGIN PRA CADASTRO
+// TROCA DE LOGIN PRA CADASTRO e ESQUECI SENHA
 document.getElementById('cadastro-link').addEventListener('click', () => {
     let login_section = document.getElementById('login-section');
     let cadastro_section = document.getElementById('cadastro-section');
 
     login_section.style.display = 'none';
-    cadastro_section.style.display = 'block';
+    cadastro_section.style.display = 'flex';
+})
+document.getElementById('esqueci-senha').addEventListener('click', () => {
+    let login_section = document.getElementById('login-section');
+    let esqueci_section = document.getElementById('esqueci-section');
+
+    login_section.style.display = 'none';
+    esqueci_section.style.display = 'flex';
 })
 
-// TROCA DE CADASTRO PRA LOGIN
-document.getElementById('login-link').addEventListener('click', () => {
+// IR PARA TELA LOGIN
+document.getElementById("cadastro-back").addEventListener('click', () => {
     let login_section = document.getElementById('login-section');
     let cadastro_section = document.getElementById('cadastro-section');
-
+    
     cadastro_section.style.display = 'none';
-    login_section.style.display = 'block';
+    login_section.style.display = 'flex';
+})
+document.getElementById("esqueci-back").addEventListener('click', () => {
+    let login_section = document.getElementById('login-section');
+    let esqueci_section = document.getElementById('esqueci-section');
+
+    esqueci_section.style.display = 'none';
+    login_section.style.display = 'flex';
 })
 
 // LOG OUT
@@ -140,34 +154,38 @@ function signIn(){
     let confirm_password_cadastro = document.getElementById("conf-password-cadastro").value;
 
     // Confere se as senhas são iguais ou Curtas
-    if((password_cadastro !== confirm_password_cadastro) || password_cadastro < 8){
-        document.getElementById("password-cadastro").style.border = "2px solid" 
-        document.getElementById("password-cadastro").style.borderColor = "red";
-
-        document.getElementById("conf-password-cadastro").style.border = "2px solid" 
-        document.getElementById("conf-password-cadastro").style.borderColor = "red";
-
-        alert("Senha não confere ou não válida")
+    if(email_cadastro == "" || password_cadastro == "" || nome_cadastro == "" || username_cadastro == ""){
+        if(nome_cadastro == ""){
+            document.getElementById("nome-cadastro").style.border = "2px solid" 
+            document.getElementById("nome-cadastro").style.borderColor = "red";
+        }
+        if(username_cadastro == ""){
+            document.getElementById("username-cadastro").style.border = "2px solid" 
+            document.getElementById("username-cadastro").style.borderColor = "red";
+        }
+        if(email_cadastro == ""){
+            document.getElementById("email-cadastro").style.border = "2px solid" 
+            document.getElementById("email-cadastro").style.borderColor = "red";
+        }
+        if(password_cadastro == ""){
+            document.getElementById("password-cadastro").style.border = "2px solid" 
+            document.getElementById("password-cadastro").style.borderColor = "red";
+        }
+        if(confirm_password_cadastro == ""){
+            document.getElementById("conf-password-cadastro").style.border = "2px solid" 
+            document.getElementById("conf-password-cadastro").style.borderColor = "red";
+        }
     }
     else{
         // Confere se os campos estão preenchidos
-        if(email_cadastro == "" || password_cadastro == "" || nome_cadastro == "" || username_cadastro == ""){
-            if(nome_cadastro == ""){
-                document.getElementById("nome-cadastro").style.border = "2px solid" 
-                document.getElementById("nome-cadastro").style.borderColor = "red";
-            }
-            if(username_cadastro == ""){
-                document.getElementById("username-cadastro").style.border = "2px solid" 
-                document.getElementById("username-cadastro").style.borderColor = "red";
-            }
-            if(email_cadastro == ""){
-                document.getElementById("email-cadastro").style.border = "2px solid" 
-                document.getElementById("email-cadastro").style.borderColor = "red";
-            }
-            if(password_cadastro == ""){
-                document.getElementById("password-cadastro").style.border = "2px solid" 
-                document.getElementById("password-cadastro").style.borderColor = "red";
-            }
+        if((password_cadastro !== confirm_password_cadastro) || password_cadastro < 8){
+            document.getElementById("password-cadastro").style.border = "2px solid" 
+            document.getElementById("password-cadastro").style.borderColor = "red";
+
+            document.getElementById("conf-password-cadastro").style.border = "2px solid" 
+            document.getElementById("conf-password-cadastro").style.borderColor = "red";
+
+            alert("Senha não confere ou não válida")
         }
         else{
             var verify = true
@@ -266,7 +284,6 @@ function gratifyUser(user){
     let hour = new Date().getHours();
     let greeting_span = document.getElementById('greeting');
     let greeting = '';
-    let nome
 
     // Pegando o documento do usuário
     var doc_usuarios = db.collection('usuários').doc(user.email);
@@ -294,9 +311,5 @@ function gratifyUser(user){
     }).catch((error) => {
         console.log("Error getting document:", error);
     });
-
-    
-
-    
 }
 
