@@ -1,7 +1,7 @@
 # Praia App
 
 ```
-const Criadores =[
+const Criadores = [
     {
         Nome: "João Vinicius Vitral",
         Github: "https://github.com/JxVtrl/",
@@ -12,7 +12,6 @@ const Criadores =[
     }
 ]
 ```
-
 
 *   Lembretes
 *   Ferramentas
@@ -31,43 +30,88 @@ const Criadores =[
     [✔] JS Inputs
     [] *Credenciamento*
         ✔ Login Interno
-        - Login Via Google, Facebook, etc
         ✔ Verificar Email ao Cadastrar
         ✔ Salvar Nome e Email no Banco de Dados
+        - Login Via Google, Facebook, etc
 
 
 ### Main Page
-    [] Menu    
-        * Web
-        * App
-    [] Background
-        - Mudança com o tempo atual
-    [] Icones
-        -- Top
-            
-        -- Bottom (APP)
+    [] Menu de Navegação
+        - Web (Topo)
+            - Logo
+            - Home
+            - Barracas
+            - Esportes
+            - Perfil
+            - Config
 
+        - App (Lateral)
+            - Perfil
+            - Barracas
+            - Esportes
+            - Config
+
+    [] Background da página
+        - Estático
+
+    [] Gratificação
+        - Gratificação ao usuário
+
+    [] Cards (Scroll Horizontal ou Vertical)
+        - Tempo Hoje
+            - Background do tempo (gif ou png)
+            - Título do card (Cidade)
+            - Descrição rápida do tempo e temperatura
+
+        - Barracas
+            - Background
+            - Título (Barracas & comercio local)
+            - Alugue seu espaço na praia
+
+        - Esporte
+            - Background (Img de esportes jogados na praia aleatoriamente)
+            - Título (Esportes)
+            - Encontre ou monte seu time
+
+        - ... Outros cards
+
+    [] Extra Icons
+        -- App (Top-Right corner)
+            - Mapa
+            - Música
+
+### Hoje Card Page
+    * Informações do tempo hoje
+        * Local
+        * Estado do Céu (Descrição do tempo)
+        * Vento
+        * Temperatura
+        * Pressão
+        * Umidade
+        * Sensação Térmica
+        * Sol
+        * ... Outros
     
-    [] Informações
-        1. Web
-            * Olá
-            * Local
-            * Estado do Céu
-            * Vento
+    * Possibilidade de ser um bom dia de Praia
+        * Com base no
+            * Tempo Atual
+            * Dia da Semana
+            * Média de Movimento/Quantidade de pessoas
             * Temperatura
-            * Pressão
-            * Umidade
-            * Sensação Térmica
-            * Sol
-        2. App
-            * Olá
-            * Local
-            * Estado do Céu
-            * Temperatura
-            * ? Sensação ?
-            * Sol
 
-### Barracas Page
-    [] Mapa
-    [] Lista de Barracas Favoritadas
+### Barracas Card Page
+    * Mapa 
+    * Barracas online
+    * Lista de Barracas Favoritas
+        * Acessando a barraca selecionada
+            - Nome da Barraca
+            - Posicionamento no mapa/endereço/direção
+            - Horário de funcionamento
+            - Opções/Cards
+                - Alugar Barraca e Cadeira
+                    - Barraca e Cadeira disponíveis
+
+                - Promoções (True/False - Se tiver)
+
+                - Comprar Produto da barraca selecionada
 
