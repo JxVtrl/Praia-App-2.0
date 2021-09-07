@@ -208,13 +208,23 @@ input:focus{
     }
 }
 
-#cadastro{
+#cadastro-link{
     cursor: pointer;
     margin: 15px auto 0;
 
 }
 
-#cadastro:hover{
+#cadastro-link:hover{
+    text-decoration: underline;
+}
+
+#login-link{
+    cursor: pointer;
+    margin: 15px auto 0;
+
+}
+
+#login-link:hover{
     text-decoration: underline;
 }
 
