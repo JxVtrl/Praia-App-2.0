@@ -177,7 +177,7 @@ function signIn(){
         }
     }
     else{
-        // Confere se os campos estão preenchidos
+        // Confere se a senha é válida
         if((password_cadastro !== confirm_password_cadastro) || password_cadastro < 8){
             document.getElementById("password-cadastro").style.border = "2px solid" 
             document.getElementById("password-cadastro").style.borderColor = "red";
@@ -188,68 +188,75 @@ function signIn(){
             alert("Senha não confere ou não válida")
         }
         else{
-            var verify = true
-            // Verifica se o usuário já existe
-            db.collection("usuários").where("username", "==", username_cadastro).get()
-            .then(function(querySnapshot) {
-                querySnapshot.forEach(function(doc) {
-                    verify = false;
+            // Confere se o nome de usuário é válido
+            if(username_cadastro.length < 4 || username_cadastro.length > 12 || username_cadastro.includes(' ')){
+                alert("Username não válido")
             
-                    alert("Usuário já existe.");
-                    console.log(doc.id, " => ", doc.data().username);
+                document.getElementById("username-cadastro").style.border = "2px solid" 
+                document.getElementById("username-cadastro").style.borderColor = "red";
+            }
+            else{
+                // Verifica se o usuário já existe
+                db.collection("usuários").where("username", "==", username_cadastro).get()
+                .then(function(querySnapshot) {
+                    querySnapshot.forEach(function(doc) {
+                
+                        alert("Usuário já existe.");
+                        console.log(doc.id, " => ", doc.data().username);
 
-                    document.getElementById("username-cadastro").style.border = "2px solid" 
-                    document.getElementById("username-cadastro").style.borderColor = "red";
-                })
-            })
-        
-            // Se não encontrar o usuário no banco de dados
-            db.collection("usuários").where("username", "!=", username_cadastro).get()
-            .then(function(querySnapshot) {
-                querySnapshot.forEach(function(doc) {
-                // Cadastra o usuário
-                firebase.auth().createUserWithEmailAndPassword(email_cadastro, password_cadastro)
-                    .then((userCredential) => {
-                        var user = userCredential.user;
-
-                        const userInfo = {
-                            nome: nome_cadastro,
-                            username: username_cadastro,
-                            email: email_cadastro
-                        }
-
-                        // Chamada do banco de dados
-                        addDataBase(user, userInfo);
-            
-                        // Envia email de verificação
-                        user.sendEmailVerification().then(function() {
-                            // Email sent.
-                            alert('Conta Criada! Email de verificação Enviado.');
-                            location.reload();
-                        })
+                        document.getElementById("username-cadastro").style.border = "2px solid" 
+                        document.getElementById("username-cadastro").style.borderColor = "red";
                     })
-                    .catch((error) => {
-                        var errorCode = error.code;
-                        var errorMessage = error.message;
-                        console.log(errorCode + ' ' + errorMessage);
-            
-                        document.getElementById("nome-cadastro").style.border = "2px solid" 
-                        document.getElementById("nome-cadastro").style.borderColor = "red";
-
-                        document.getElementById("username").style.border = "2px solid" 
-                        document.getElementById("username").style.borderColor = "red";
-            
-                        document.getElementById("email-cadastro").style.border = "2px solid" 
-                        document.getElementById("email-cadastro").style.borderColor = "red";
-                        
-                        document.getElementById("password-cadastro").style.border = "2px solid" 
-                        document.getElementById("password-cadastro").style.borderColor = "red";
-
-                        document.getElementById("conf-password-cadastro").style.border = "2px solid" 
-                        document.getElementById("conf-password-cadastro").style.borderColor = "red";
-                    });
                 })
-            })
+            
+                // Se não encontrar o usuário no banco de dados
+                db.collection("usuários").where("username", "!=", username_cadastro).get()
+                .then(function(querySnapshot) {
+                    querySnapshot.forEach(function(doc) {
+                    // Cadastra o usuário
+                    firebase.auth().createUserWithEmailAndPassword(email_cadastro, password_cadastro)
+                        .then((userCredential) => {
+                            var user = userCredential.user;
+
+                            const userInfo = {
+                                nome: nome_cadastro,
+                                username: username_cadastro,
+                                email: email_cadastro
+                            }
+
+                            // Chamada do banco de dados
+                            addDataBase(user, userInfo);
+                
+                            // Envia email de verificação
+                            user.sendEmailVerification().then(function() {
+                                // Email sent.
+                                alert('Conta Criada! Email de verificação Enviado.');
+                                location.reload();
+                            })
+                        })
+                        .catch((error) => {
+                            var errorCode = error.code;
+                            var errorMessage = error.message;
+                            console.log(errorCode + ' ' + errorMessage);
+                
+                            document.getElementById("nome-cadastro").style.border = "2px solid" 
+                            document.getElementById("nome-cadastro").style.borderColor = "red";
+
+                            document.getElementById("username").style.border = "2px solid" 
+                            document.getElementById("username").style.borderColor = "red";
+                
+                            document.getElementById("email-cadastro").style.border = "2px solid" 
+                            document.getElementById("email-cadastro").style.borderColor = "red";
+                            
+                            document.getElementById("password-cadastro").style.border = "2px solid" 
+                            document.getElementById("password-cadastro").style.borderColor = "red";
+
+                            document.getElementById("conf-password-cadastro").style.border = "2px solid" 
+                            document.getElementById("conf-password-cadastro").style.borderColor = "red";
+                        });
+                    })
+                })
+            }
         }
     }
 }
