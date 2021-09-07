@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <title>Praia 2.0</title>
     <meta charset="UTF-8">
@@ -21,14 +21,14 @@
                     <h2 class="titles-h2">Olá, faça seu login.</h2>
                     <div class="form-container">
                         <form>
-                            <input type="email" name="email"  placeholder="Email" class="form" id="email">
+                            <input type="text" name="username" placeholder="Usuário" class="form" id="username">
                             <input type="password" placeholder="Senha" class="form" id="password" autocomplete="on">
                             <div id="btn-container">
                                 <span id="form-span">Enviar</span>
-                                <button class="form-btn" type="button" onclick="login()" id="login">Enviar</button>
+                                <button class="form-btn" type="button" id="login" onclick="loginUser()">Enviar</button>
                             </div>
                         </form>
-                        <p id="cadastro">Cadastre-se Grátis</p>
+                        <p id="cadastro-link">Cadastre-se Grátis</p>
                     </div>
                 </section>
 
@@ -36,14 +36,18 @@
                     <h2 class="titles-h2">Olá, faça seu cadastro.</h2>
                     <div class="form-container">
                         <form>
-                            <input type="text" name="nome"  placeholder="Nome" class="form" id="nome-cadastro">
-                            <input type="email" name="email"  placeholder="Email" class="form" id="email-cadastro">
-                            <input type="password" placeholder="Senha" class="form" id="password-cadastro" autocomplete="on">
+                            <input type="text" name="nome" placeholder="Nome completo" class="form" id="nome-cadastro">
+                            <input type="text" name="username" id="username-cadastro" class="form" placeholder="Nome de usuário">
+                            <input type="email" name="email"  placeholder="Email" class="form" id="email-cadastro" autocomplete="email">
+                            <input type="password" placeholder="Senha" class="form" id="password-cadastro" autocomplete="new-password">
+                            <input type="password" placeholder="Confirme sua senha" class="form" id="conf-password-cadastro" autocomplete="new-password">
+
                             <div id="btn-container">
                                 <span id="form-span">Enviar</span>
                                 <button class="form-btn" type="button" onclick="signIn(event)">Enviar</button>
                             </div>
                         </form>
+                        <p id="login-link">Já é cadastrado? Faça aqui seu login.</p>
                     </div>
                 </section>
             </div>
@@ -97,16 +101,7 @@
                 <span id="greeting"></span>
             </h1>
 
-            <!-- Actual Localization -->
-            <h1 id="title-home">
-                <span id="cidade"></span>
-            </h1>
-
-            <!-- Weather Icon -->
-            <div id="icone-tempo-container"></div>
-
-            <!-- Weather Description -->
-            <span id="descricao-tempo"></span>
+            
             
     
         
