@@ -19,6 +19,7 @@
     // Initialize Firebase
     firebase.initializeApp(config);
 })()
+
 window.addEventListener("load", function(){
     // Identifica se o usuário está logado
     firebase.auth().onAuthStateChanged(function(user) {
@@ -32,9 +33,9 @@ window.addEventListener("load", function(){
                     landing.style.display = "none";
 
                     // Limpar valores do formulário
-                    document.getElementById('email').value = ''
+                    document.getElementById('username').value = ''
                     document.getElementById('password').value = ''
-                    document.getElementById("email").style.border = 'none' 
+                    document.getElementById("username").style.border = 'none' 
                     document.getElementById("password").style.border = 'none' 
 
                 }, 2000)
@@ -48,44 +49,62 @@ window.addEventListener("load", function(){
     });
 });
 
-function login(){
-    var email       = document.getElementById("email").value;       //  joaoviniciusvitral@hotmail.com
+function loginUser(){
+    var username    = document.getElementById("username").value;    //  joaovitral
     var password    = document.getElementById("password").value;   //  comoFicarRico
     
-    if(email === "" || password === "" || email < 5 || password < 5){
-        if(email === "" || email < 5){
-            document.getElementById("email").style.border = "2px solid" 
-            document.getElementById("email").style.borderColor = "red";
+    if(username === "" || password === "" || username < 5 || password < 5){
+        if(username === "" || username < 5){
+            document.getElementById("username").style.border = "2px solid" 
+            document.getElementById("username").style.borderColor = "red";
         }
         if(password === "" || password < 5){
             document.getElementById("password").style.border = "2px solid" 
             document.getElementById("password").style.borderColor = "red";
         }
     }else{
-        firebase.auth().signInWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-            // Signed in
-            var user = userCredential.user;
-            if(user){
-                document.getElementById("email").style.border = "2px solid" 
-                document.getElementById("email").style.borderColor = "green";
-                document.getElementById("password").style.border = "2px solid" 
-                document.getElementById("password").style.borderColor = "green"; 
+        db.collection("usuários").where("username", "==", username).get()
+        .then(function(querySnapshot) {
+            querySnapshot.forEach(function(doc) {
+                let email = doc.data().email;
+                verify = true
+                console.log(email);
 
-                console.log('User logged');
-            }
-        })
-        .catch((error) => {
-            // Handle Errors here.
-            console.log(error.code);
-            alert(error.message);
-        });
+                firebase.auth().signInWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    // Signed in
+                    var user = userCredential.user;
+                    if(user){
+                        document.getElementById("username").style.border = "2px solid" 
+                        document.getElementById("username").style.borderColor = "green";
+                        document.getElementById("password").style.border = "2px solid" 
+                        document.getElementById("password").style.borderColor = "green"; 
         
+                        console.log('User logged');
+                    }
+                })
+                .catch((error) => {
+                    // Handle Errors here.
+                    console.log(error.code);
+                    alert(error.message);
+                });
+            })
+        })
+
+        // Se não encontrar o usuário no banco de dados
+        db.collection("usuários").where("username", "!=", username).get()
+        .then(function(querySnapshot) {
+            querySnapshot.forEach(function(doc) {
+                alert('Usuário não encontrado');
+                document.getElementById("username").style.border = "2px solid" 
+                document.getElementById("username").style.borderColor = "red";
+            })
+        })
     }
 }
 
 // TROCA DE LOGIN PRA CADASTRO
-document.getElementById('cadastro').addEventListener('click', () => {
+document.getElementById('cadastro-link').addEventListener('click', () => {
     let login_section = document.getElementById('login-section');
     let cadastro_section = document.getElementById('cadastro-section');
 
@@ -93,10 +112,20 @@ document.getElementById('cadastro').addEventListener('click', () => {
     cadastro_section.style.display = 'block';
 })
 
+// TROCA DE CADASTRO PRA LOGIN
+document.getElementById('login-link').addEventListener('click', () => {
+    let login_section = document.getElementById('login-section');
+    let cadastro_section = document.getElementById('cadastro-section');
+
+    cadastro_section.style.display = 'none';
+    login_section.style.display = 'block';
+})
+
 // LOG OUT
 function logout() {
     firebase.auth().signOut().then(function() {
         console.log("Signed out");
+        location.reload();
     }).catch(function(error) {
         console.log(error.message);
     })
@@ -104,64 +133,118 @@ function logout() {
 
 // SIGN IN
 function signIn(){
+    let nome_cadastro = document.getElementById('nome-cadastro').value;
+    let username_cadastro = document.getElementById('username-cadastro').value;
     let email_cadastro = document.getElementById("email-cadastro").value;
     let password_cadastro = document.getElementById("password-cadastro").value;
-    let nome_cadastro = document.getElementById('nome-cadastro').value;
+    let confirm_password_cadastro = document.getElementById("conf-password-cadastro").value;
 
-    if(email_cadastro == "" || password_cadastro == "" || nome_cadastro == ""){
-        if(email_cadastro == ""){
-            document.getElementById("email-cadastro").style.border = "2px solid" 
-            document.getElementById("email-cadastro").style.borderColor = "red";
-        }
-        if(password_cadastro == ""){
-            document.getElementById("password-cadastro").style.border = "2px solid" 
-            document.getElementById("password-cadastro").style.borderColor = "red";
-        }
-        if(nome_cadastro == ""){
-            document.getElementById("nome-cadastro").style.border = "2px solid" 
-            document.getElementById("nome-cadastro").style.borderColor = "red";
-        }
+    // Confere se as senhas são iguais ou Curtas
+    if((password_cadastro !== confirm_password_cadastro) || password_cadastro < 8){
+        document.getElementById("password-cadastro").style.border = "2px solid" 
+        document.getElementById("password-cadastro").style.borderColor = "red";
+
+        document.getElementById("conf-password-cadastro").style.border = "2px solid" 
+        document.getElementById("conf-password-cadastro").style.borderColor = "red";
+
+        alert("Senha não confere ou não válida")
     }
     else{
-        // Faz o Cadastro
-        firebase.auth().createUserWithEmailAndPassword(email_cadastro, password_cadastro)
-        .then((userCredential) => {
-            var user = userCredential.user;
-
-            // chamada do banco de dados
-            addDataBase(user, email_cadastro, nome_cadastro);
-
-            // Envia email de verificação
-            user.sendEmailVerification().then(function() {
-                // Email sent.
-                console.log('Email sent');
-            })
-        })
-        .catch((error) => {
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            console.log(errorCode + ' ' + errorMessage);
-
-            document.getElementById("nome-cadastro").style.border = "2px solid" 
-            document.getElementById("nome-cadastro").style.borderColor = "red";
-
-            document.getElementById("email-cadastro").style.border = "2px solid" 
-            document.getElementById("email-cadastro").style.borderColor = "red";
+        // Confere se os campos estão preenchidos
+        if(email_cadastro == "" || password_cadastro == "" || nome_cadastro == "" || username_cadastro == ""){
+            if(nome_cadastro == ""){
+                document.getElementById("nome-cadastro").style.border = "2px solid" 
+                document.getElementById("nome-cadastro").style.borderColor = "red";
+            }
+            if(username_cadastro == ""){
+                document.getElementById("username-cadastro").style.border = "2px solid" 
+                document.getElementById("username-cadastro").style.borderColor = "red";
+            }
+            if(email_cadastro == ""){
+                document.getElementById("email-cadastro").style.border = "2px solid" 
+                document.getElementById("email-cadastro").style.borderColor = "red";
+            }
+            if(password_cadastro == ""){
+                document.getElementById("password-cadastro").style.border = "2px solid" 
+                document.getElementById("password-cadastro").style.borderColor = "red";
+            }
+        }
+        else{
+            var verify = true
+            // Verifica se o usuário já existe
+            db.collection("usuários").where("username", "==", username_cadastro).get()
+            .then(function(querySnapshot) {
+                querySnapshot.forEach(function(doc) {
+                    verify = false;
             
-            document.getElementById("password-cadastro").style.border = "2px solid" 
-            document.getElementById("password-cadastro").style.borderColor = "red";
-        });
+                    alert("Usuário já existe.");
+                    console.log(doc.id, " => ", doc.data().username);
+
+                    document.getElementById("username-cadastro").style.border = "2px solid" 
+                    document.getElementById("username-cadastro").style.borderColor = "red";
+                })
+            })
+        
+            // Se não encontrar o usuário no banco de dados
+            db.collection("usuários").where("username", "!=", username_cadastro).get()
+            .then(function(querySnapshot) {
+                querySnapshot.forEach(function(doc) {
+                // Cadastra o usuário
+                firebase.auth().createUserWithEmailAndPassword(email_cadastro, password_cadastro)
+                    .then((userCredential) => {
+                        var user = userCredential.user;
+
+                        const userInfo = {
+                            nome: nome_cadastro,
+                            username: username_cadastro,
+                            email: email_cadastro
+                        }
+
+                        // Chamada do banco de dados
+                        addDataBase(user, userInfo);
+            
+                        // Envia email de verificação
+                        user.sendEmailVerification().then(function() {
+                            // Email sent.
+                            alert('Conta Criada! Email de verificação Enviado.');
+                            location.reload();
+                        })
+                    })
+                    .catch((error) => {
+                        var errorCode = error.code;
+                        var errorMessage = error.message;
+                        console.log(errorCode + ' ' + errorMessage);
+            
+                        document.getElementById("nome-cadastro").style.border = "2px solid" 
+                        document.getElementById("nome-cadastro").style.borderColor = "red";
+
+                        document.getElementById("username").style.border = "2px solid" 
+                        document.getElementById("username").style.borderColor = "red";
+            
+                        document.getElementById("email-cadastro").style.border = "2px solid" 
+                        document.getElementById("email-cadastro").style.borderColor = "red";
+                        
+                        document.getElementById("password-cadastro").style.border = "2px solid" 
+                        document.getElementById("password-cadastro").style.borderColor = "red";
+
+                        document.getElementById("conf-password-cadastro").style.border = "2px solid" 
+                        document.getElementById("conf-password-cadastro").style.borderColor = "red";
+                    });
+                })
+            })
+        }
     }
 }
 
 // Adicionar dados do usuário no banco de dados
 var db = firebase.firestore();
-function addDataBase(user, email, nome){
+function addDataBase(user, info){
 
-    db.collection("usuários").doc(email).set({
-        name: nome,
-        first_name: firstName(nome),
-        email: email,
+    db.collection("usuários").doc(info.email).set({
+        name: info.nome,
+        first_name: firstName(info.nome),
+        username: info.username,
+        email: info.email,
         id: user.uid
 
     }).then(() => {
@@ -173,7 +256,7 @@ function addDataBase(user, email, nome){
 }
 
 function firstName(name){
-    let name_split = name.split(' ');
+    let name_split = name.toLowerCase().split(' ');
     
     return name_split[0].charAt(0).toUpperCase() + name_split[0].slice(1);
 }
@@ -207,7 +290,6 @@ function gratifyUser(user){
         
         } else {
             logout()
-            alert('Usuário não encontrado');
         }
     }).catch((error) => {
         console.log("Error getting document:", error);
