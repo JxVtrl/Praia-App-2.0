@@ -12,14 +12,15 @@
     <!-- BoxIcons CSS -->
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <!-- Linked CSS -->
-    <link rel="stylesheet" href="main_style.css">
+    <link rel="stylesheet" href="../css/main_style.css">
+    <link rel="stylesheet" href="../css/nav.css">
 </head>
 <body>
     
     <!--- Landing Page -->
     <div id="landing">
         <div id="landing-card">
-            <img src="midia/coconut.ico" alt="coquin">
+            <img src="../midia/coconut.ico" alt="coquin">
             <div id="landing-form">
 
                 <!-- Login Section -->
@@ -76,75 +77,89 @@
 
     <!-- Page Main -->
     <div id="main" class="hide">
+
+
+
+
         <!--- Nav Menu -->
-        <nav id="nav-bar">
-            <div class="logo-container">
-                <i class='bx bx-water'></i>
-                <span class="logo-name">Praiano</span>
+        <nav class="sidebar">
+            <div class="logo-details">
+                <i class='bx bx-water' id="logo"></i>
+                <span class="logo_name">Praiano</span>
             </div>
             <ul class="nav-links">
                 <li class="nav-item">
+                    <div id="profile-details">
+                        <div class="profile-content">
+                            <img alt="img-perfil" src="../midia/et.ico" id="img-pic" onclick="openUserMenu()">
+                        </div>
+                
+                        <i class='bx bx-log-out' id="icon-logout" onclick="logout()"></i>
+                    </div>
+                </li>
+                <li class="nav-item">
                     <a href="#">
                         <i class='bx bx-collection' ></i>
-                        <span class="link-title">Dashboard</span>
+                        <span class="link_name">Dashboard</span>
                     </a>
-                    <ul class="sub-nav">
-                        <li><a class="link-name blank" href="#">Dashboard</a></li>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="#">Dashboard</a></li>
                     </ul>
                 </li>
-
                 <li class="nav-item">
-                    <div class="icon-link">
+                    <div class="iocn-link">
                         <a href="#">
                             <i class='bx bx-store'></i>
-                            <span class="link-title">Barracas</span>
+                            <span class="link_name">Barracas</span>
                         </a>
                         <i class="bx bxs-chevron-down arrow"></i>
                     </div>
-                    <ul class="sub-nav">
-                        <li class="link-name">Barracas</li>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Barracas</a></li>
                         <li><a href="#">Favoritos</a></li>
                         <li><a href="#">Descobrir</a></li>
                         <li><a href="#">Consumo</a></li>
                     </ul>
                 </li>
-
                 <li class="nav-item">
-                    <div class="icon-link">
+                    <div class="iocn-link">
                         <a href="#">
                             <i class='bx bx-run'></i>
-                            <span class="link-title">Esportes</span>
+                            <span class="link_name">Esportes</span>
                         </a>
                         <i class="bx bxs-chevron-down arrow"></i>
                     </div>
-                    <ul class="sub-nav">
-                        <li class="link-name">Esportes</li>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Esportes</a></li>
                         <li><a href="#">Explorar</a></li>
                         <li><a href="#">Criar rede</a></li>
                     </ul>
                 </li>
-
                 <li class="nav-item">
                     <a href="#">
                         <i class='bx bx-id-card'></i>
-                        <span class="link-title">Perfil</span>
+                        <span class="link_name">Perfil</span>
                     </a>
-                    <ul class="sub-nav">
-                        <li><a class="link-name blank" href="#">Perfil</a></li>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="#">Perfil</a></li>
                     </ul>
                 </li>
-
+                <li class="nav-item">
+                    <a href="#">
+                      <i class='bx bx-cog' ></i>
+                      <span class="link_name">Ajustes</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                      <li><a class="link_name" href="#">Ajustes</a></li>
+                    </ul>
+                </li>
+                <li id="newIcon-li"></li>
             </ul>
-            <div id="profile-details">
-                <img alt="img-perfil" src="midia/et.ico" id="img-pic" onclick="openUserMenu()">
-                <div>
-                    <i class='bx bx-cog' id="icon-settings"></i>
-                    <i class='bx bx-log-out' id="icon-logout" onclick="logout()"></i>
-                </div>
-            </div>
-
-
         </nav>
+
+
+
+
 
         <!--- Main Content -->
         <main id="main-content">
@@ -186,7 +201,7 @@
     <script src="https://unpkg.com/boxicons@2.0.9/dist/boxicons.js"></script> 
 
     <!--- Scripts --> 
-    <script src="landing/js/landing_script.js"></script>
-    <script src="landing/js/auth.js"></script>
+    <script src="js/landing_script.js"></script>
+    <script src="js/auth.js"></script>
 </body>
 </html>
