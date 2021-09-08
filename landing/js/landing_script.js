@@ -26,9 +26,25 @@ function getTimeNow(){
     let tempo = formatNumber(h) + ":" + formatNumber(m) + ":" + formatNumber(s);
 }
 
-////////////////////
-// Open user menu //
-////////////////////
+///////////////
+// Nav menu //
+/////////////
+let arrow = document.querySelectorAll('.nav-item');
+for(let i = 0; i < arrow.length; i++){
+    arrow[i].addEventListener('click', (e) => {
+        if(i == 1 || i == 2){
+            arrow[1].classList.remove('openMenu');
+            arrow[2].classList.remove('openMenu');
+
+            arrow[i].classList.toggle('openMenu');
+        }
+    })
+}
+
+
+
+
+
 function openUserMenu(){
     alert("User Menu")
 }
