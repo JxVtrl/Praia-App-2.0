@@ -29,23 +29,37 @@ function getTimeNow(){
 ///////////////
 // Nav menu //
 /////////////
-let arrow = document.querySelectorAll('.nav-item');
-for(let i = 0; i < arrow.length; i++){
-    arrow[i].addEventListener('click', (e) => {
-        if(i == 1 || i == 2){
-            arrow[1].classList.remove('openMenu');
-            arrow[2].classList.remove('openMenu');
-
-            arrow[i].classList.toggle('openMenu');
-        }
-    })
+let li_box = document.querySelectorAll('.nav-item');
+console.log(li_box)
+for (var i = 0; i < li_box.length; i++) {
+    li_box[i].addEventListener("click", (e)=>{
+        console.log(e.target)
+        
+        arrowParent.classList.toggle("showMenu");
+    });
 }
 
 
 
 
+let nav = document.querySelector('.sidebar');
+let logOutIcon = document.getElementById('icon-logout')
+let newIcon = document.getElementById('newIcon-li');
 
-function openUserMenu(){
-    alert("User Menu")
-}
+document.getElementById('logo').addEventListener('click', () => {
+    if(nav.classList.contains('close')){
+        nav.classList.remove('close');
+        logOutIcon.classList.remove('hide');
+        newIcon.innerHTML = ''
+    }
+    else{
+        nav.classList.add('close');
+        logOutIcon.classList.add('hide');
+        newIcon.innerHTML = 
+        `   <i class='bx bx-log-out' id="icon-logout" onclick="logout()"></i>
+            <ul class="sub-menu"><li onclick="logout()"><a class="link_name" href="#">Sair</a></li></ul>   `
+    }
+
+})
+
     
