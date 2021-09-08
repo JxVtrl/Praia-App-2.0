@@ -1,7 +1,7 @@
 
     // ....
 
-
+    
 
 // Função Anonima config para o firebase
 (function(){
@@ -67,7 +67,6 @@ function loginUser(){
         .then(function(querySnapshot) {
             querySnapshot.forEach(function(doc) {
                 let email = doc.data().email;
-                verify = true
                 console.log(email);
 
                 firebase.auth().signInWithEmailAndPassword(email, password)
@@ -95,7 +94,6 @@ function loginUser(){
         db.collection("usuários").where("username", "!=", username).get()
         .then(function(querySnapshot) {
             querySnapshot.forEach(function(doc) {
-                alert('Usuário não encontrado');
                 document.getElementById("username").style.border = "2px solid" 
                 document.getElementById("username").style.borderColor = "red";
             })
