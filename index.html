@@ -7,7 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <!-- Firebase CSS -->
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/5.0.0/firebase-ui-auth.css" />
+    <!-- BoxIcons CSS -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Linked CSS -->
     <link rel="stylesheet" href="main_style.css">
 </head>
 <body>
@@ -17,6 +21,8 @@
         <div id="landing-card">
             <img src="midia/coconut.ico" alt="coquin">
             <div id="landing-form">
+
+                <!-- Login Section -->
                 <section id="login-section">
                     <h2 class="titles-h2">Olá, faça seu login.</h2>
                     <div class="form-container">
@@ -33,6 +39,7 @@
                     </div>
                 </section>
 
+                <!-- Sign-in Section -->
                 <section class="hide" id="cadastro-section">
                     <h2 class="titles-h2">Olá, faça seu cadastro.</h2>
                     <div class="form-container">
@@ -42,7 +49,6 @@
                             <input type="email" name="email"  placeholder="Email" class="form" id="email-cadastro" autocomplete="email">
                             <input type="password" placeholder="Senha" class="form" id="password-cadastro" autocomplete="new-password">
                             <input type="password" placeholder="Confirme sua senha" class="form" id="conf-password-cadastro" autocomplete="new-password">
-
                             <div id="btn-container">
                                 <span id="form-span">Enviar</span>
                                 <button class="form-btn" type="button" onclick="signIn(event)">Enviar</button>
@@ -50,19 +56,20 @@
                         </form>
                         <p class="login-link" id="cadastro-back">Já é cadastrado? Faça aqui seu login.</p>
                     </div>
-                </section >
+                </section>
 
-                <section id="esqueci-section" class="hide">
+                <!-- Forgot Section -->
+                <section class="hide" id="esqueci-section">
                     <h2 class="titles-h2">Esqueceu sua senha?</h2>
                     <h3 class="titles-h3">Digite aqui seu email para que possamos enviar um email de restauração</h3>
                     <input type="email" name="email" id="esqueci-email" class="form" placeholder="Digite aqui seu email">
-                    
                     <div id="btn-container">
                         <span id="form-span">Enviar</span>
                         <button class="form-btn" type="button" onclick="esqueciSenha(event)">Enviar</button>
                     </div>
                     <p class="login-link" id="esqueci-back">Voltar</p>
                 </section>
+
             </div>
         </div>
     </div>
@@ -71,29 +78,72 @@
     <div id="main" class="hide">
         <!--- Nav Menu -->
         <nav id="nav-bar">
-            <ul id="nav-list">
-                <li>
+            <div class="logo-container">
+                <i class='bx bx-water'></i>
+                <span class="logo-name">Praiano</span>
+            </div>
+            <ul class="nav-links">
+                <li class="nav-item">
                     <a href="#">
-                        <ion-icon name="today-outline" class="icon-size"></ion-icon>
-                        <span class="nav-item-title">Hoje</span>
+                        <i class='bx bx-collection' ></i>
+                        <span class="link-title">Dashboard</span>
                     </a>
+                    <ul class="sub-nav">
+                        <li><a class="link-name blank" href="#">Dashboard</a></li>
+                    </ul>
                 </li>
-                <li>
+
+                <li class="nav-item">
+                    <div class="icon-link">
+                        <a href="#">
+                            <i class='bx bx-store'></i>
+                            <span class="link-title">Barracas</span>
+                        </a>
+                        <i class="bx bxs-chevron-down arrow"></i>
+                    </div>
+                    <ul class="sub-nav">
+                        <li class="link-name">Barracas</li>
+                        <li><a href="#">Favoritos</a></li>
+                        <li><a href="#">Descobrir</a></li>
+                        <li><a href="#">Consumo</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <div class="icon-link">
+                        <a href="#">
+                            <i class='bx bx-run'></i>
+                            <span class="link-title">Esportes</span>
+                        </a>
+                        <i class="bx bxs-chevron-down arrow"></i>
+                    </div>
+                    <ul class="sub-nav">
+                        <li class="link-name">Esportes</li>
+                        <li><a href="#">Explorar</a></li>
+                        <li><a href="#">Criar rede</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
                     <a href="#">
-                        <ion-icon name="trail-sign-outline" class="icon-size"></ion-icon>
-                        <span class="nav-item-title">Barracas</span>
+                        <i class='bx bx-id-card'></i>
+                        <span class="link-title">Perfil</span>
                     </a>
+                    <ul class="sub-nav">
+                        <li><a class="link-name blank" href="#">Perfil</a></li>
+                    </ul>
                 </li>
-                <li>
-                    <a href="#">
-                        <ion-icon name="trophy-outline" class="icon-size"></ion-icon>
-                        <span class="nav-item-title">Esportes</span>
-                    </a>
-                </li>
-                <li>
-                    <img alt="img-perfil" src="midia/et.ico" id="img-pic" onclick="openUserMenu()">
-                </li>
+
             </ul>
+            <div id="profile-details">
+                <img alt="img-perfil" src="midia/et.ico" id="img-pic" onclick="openUserMenu()">
+                <div>
+                    <i class='bx bx-cog' id="icon-settings"></i>
+                    <i class='bx bx-log-out' id="icon-logout" onclick="logout()"></i>
+                </div>
+            </div>
+
+
         </nav>
 
         <!--- Main Content -->
@@ -101,9 +151,7 @@
 
             <!--- User Menu -->
             <div id="user-menu">
-                <ul>
-                    <li onclick="logout()">Log Out</li>
-                </ul>
+                
             </div>
 
 
@@ -122,13 +170,23 @@
 
     </div>
 
-    <script src="https://www.gstatic.com/firebasejs/8.0/firebase.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/5.0.0/firebase-ui-auth.js"></script>
-    <!-- <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script> -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.0/firebase.js"></script> 
+        <!-- Firebase Identity -->
+    <script src="https://www.gstatic.com/firebasejs/ui/5.0.0/firebase-ui-auth.js"></script> 
+        <!-- Firebase Database -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script> 
+
+    <!-- IonIcons -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script src="landing/js/auth.js"></script>
+
+    <!-- BoxIcons -->
+    <script src="https://unpkg.com/boxicons@2.0.9/dist/boxicons.js"></script> 
+
+    <!--- Scripts --> 
     <script src="landing/js/landing_script.js"></script>
+    <script src="landing/js/auth.js"></script>
 </body>
 </html>
