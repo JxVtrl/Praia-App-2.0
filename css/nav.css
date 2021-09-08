@@ -14,7 +14,7 @@
   transition: all 0.5s ease;
 }
 .sidebar.close{
-  width: 78px;
+  width: 75px;
 }
 .sidebar .logo-details{
   height: 60px;
@@ -26,7 +26,7 @@
   font-size: 30px;
   color: #fff;
   height: 50px;
-  min-width: 78px;
+  min-width: 75px;
   text-align: center;
   line-height: 50px;
 }
@@ -57,6 +57,7 @@
   position: relative;
   list-style: none;
   transition: all 0.4s ease;
+  cursor: pointer;
 }
 .sidebar .nav-links li:hover{
   background: #1d1b31;
@@ -74,17 +75,23 @@
 }
 .sidebar .nav-links li i{
   height: 50px;
-  min-width: 78px;
+  min-width: 75px;
   text-align: center;
   line-height: 50px;
-  color: #fff;
+  color: rgb(255, 255, 255);
   font-size: 20px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
-.sidebar .nav-links li.showMenu i.arrow{
+
+.sub-menu.showMenu .arrow{
   transform: rotate(-180deg);
 }
+
+.rotate{
+  transform: rotate(-180deg);
+}
+
 .sidebar.close .nav-links i.arrow{
   display: none;
 }
@@ -109,7 +116,8 @@
   background: #1d1b31;
   display: none;
 }
-.sidebar .nav-links li.showMenu .sub-menu{
+
+.sidebar .nav-links li .sub-menu.showMenu{
   display: block;
 }
 .sidebar .nav-links li .sub-menu a{
@@ -175,7 +183,7 @@
   background: none;
 }
 .sidebar.close .profile-details{
-  width: 78px;
+  width: 75px;
 }
 .sidebar .profile-details .profile-content{
   display: flex;
@@ -217,8 +225,8 @@
   transition: all 0.5s ease;
 }
 .sidebar.close ~ .home-section{
-  left: 78px;
-  width: calc(100% - 78px);
+  left: 75px;
+  width: calc(100% - 75px);
 }
 .home-section .home-content{
   height: 60px;
@@ -238,6 +246,7 @@
   font-size: 26px;
   font-weight: 600;
 }
+
 @media (max-width: 420px) {
   .sidebar.close .nav-links li .sub-menu{
     display: none;

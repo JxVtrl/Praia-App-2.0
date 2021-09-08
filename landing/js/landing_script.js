@@ -29,16 +29,33 @@ function getTimeNow(){
 ///////////////
 // Nav menu //
 /////////////
-let li_box = document.querySelectorAll('.nav-item');
-console.log(li_box)
-for (var i = 0; i < li_box.length; i++) {
-    li_box[i].addEventListener("click", (e)=>{
-        console.log(e.target)
-        
-        arrowParent.classList.toggle("showMenu");
-    });
-}
 
+
+let barraca_nav = document.getElementById('barraca-nav');
+let barraca_menu = document.getElementById('barraca-menu');
+let barraca_arrow = document.getElementById('barraca-arrow');
+
+let esportes_nav = document.getElementById('esportes-nav');
+let esportes_menu = document.getElementById('esportes-menu');
+let esportes_arrow = document.getElementById('esportes-arrow');
+
+barraca_nav.addEventListener('click', function(){
+    if(esportes_menu.classList.contains('showMenu')){
+        esportes_menu.classList.remove('showMenu');
+        esportes_arrow.classList.remove('rotate');
+    }
+    barraca_menu.classList.toggle('showMenu');
+    barraca_arrow.classList.toggle('rotate');
+})
+
+esportes_nav.addEventListener('click', function(){
+    if(barraca_menu.classList.contains('showMenu')){
+        barraca_menu.classList.remove('showMenu');
+        barraca_arrow.classList.remove('rotate');
+    }
+    esportes_menu.classList.toggle('showMenu');
+    esportes_arrow.classList.toggle('rotate');
+})
 
 
 
