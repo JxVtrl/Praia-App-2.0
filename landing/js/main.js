@@ -30,30 +30,20 @@ function getTimeNow(){
 //////////////
 
 let carrossel = document.querySelector('#carrossel');
-let carrossel_item_width = 0;
+let carrossel_item_width = document.getElementById('carrossel-container').clientWidth
+let controle = 0
 
 function moveCarrossel(){
-    carrossel_item_width += 400
-    if(carrossel_item_width > 800){
-        carrossel_item_width = 0;
+    controle += carrossel_item_width
+    if(controle >= carrossel_item_width*carrossel.childElementCount){
+        controle = 0;
     }
 
-    carrossel.style.transform = 'translateX(' + -carrossel_item_width + 'px)';
+    carrossel.style.transform = 'translateX(' + -controle + 'px)';
 }
 
 setInterval(moveCarrossel, 4000);
 
-
-
-
-document.querySelector('#carrossel').addEventListener('wheel', (e) => {
-    if(e.deltaY > 0){
-        e.target.scrollBy(-400, 0)
-    }
-    else{
-        e.target.scrollBy(400, 0)
-    }
-})
 
 
 

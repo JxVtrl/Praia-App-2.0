@@ -308,11 +308,11 @@ function gratifyUser(user){
                 username_span.innerHTML = `${doc.data().first_name}`
             }
             else if(hour >= 12 && hour < 18) {
-                greeting_span.innerHTML = `Boa tarde, ${doc.data().first_name}.`
+                greeting_span.innerHTML = `Boa tarde`
                 username_span.innerHTML = `${doc.data().first_name}`
             }
             else {
-                greeting_span.innerHTML = `Boa noite, ${doc.data().first_name}.`
+                greeting_span.innerHTML = `Boa noite`
                 username_span.innerHTML = `${doc.data().first_name}`
             }
         }
