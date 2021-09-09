@@ -25,7 +25,35 @@ function getTimeNow(){
 }
 
 
+////////////////
+// Carrossel //
+//////////////
 
+let carrossel = document.querySelector('#carrossel');
+let carrossel_item_width = 0;
+
+function moveCarrossel(){
+    carrossel_item_width += 400
+    if(carrossel_item_width > 800){
+        carrossel_item_width = 0;
+    }
+
+    carrossel.style.transform = 'translateX(' + -carrossel_item_width + 'px)';
+}
+
+setInterval(moveCarrossel, 4000);
+
+
+
+
+document.querySelector('#carrossel').addEventListener('wheel', (e) => {
+    if(e.deltaY > 0){
+        e.target.scrollBy(-400, 0)
+    }
+    else{
+        e.target.scrollBy(400, 0)
+    }
+})
 
 
 
