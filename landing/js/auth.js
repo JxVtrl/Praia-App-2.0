@@ -1,7 +1,6 @@
-
-    // ....
-
-    
+////////////////////
+// Authentication //
+////////////////////
 
 // Função Anonima config para o firebase
 (function(){
