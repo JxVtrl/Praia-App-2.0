@@ -59,7 +59,7 @@ const Criadores = [
     - [] Gratificação
         * Gratificação ao usuário
 
-    - [] Cards (Scroll Horizontal ou Vertical)
+    - [] Cards (Carroussel)
         * Tempo Hoje
             - Background do tempo (gif ou png)
             - Título do card (Cidade)
