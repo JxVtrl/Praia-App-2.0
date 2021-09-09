@@ -234,7 +234,7 @@ input:focus{
 
 /* MAIN */
 /* Nav Content ================= */
-#profile-details{
+#profile-container{
     display: flex;
     align-items: center;
     
@@ -271,5 +271,11 @@ input:focus{
     background: #1d1b31;
 }
 
+/* Main Content ================= */
+#main-content{
+    width: 100%;
+    height: 100%;
+    
+}
 
     
