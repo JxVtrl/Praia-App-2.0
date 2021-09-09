@@ -25,9 +25,8 @@ const Criadores = [
 
 
 ### Landing Page
-    [✔] Design
+    [✔] Design **A melhorar**
     [✔] Inputs
-    [✔] JS Inputs
     [] *Credenciamento*
         ✔ Login Interno
         ✔ Verificar Email ao Cadastrar
