@@ -235,7 +235,10 @@ input:focus{
 
 /* MAIN */
 #pageLoad{
+    height: 100%;
+    width: 100%;
     overflow-y: hidden;
+    position: fixed;
 }
 /* Nav Content ================= */
 #profile-container{
