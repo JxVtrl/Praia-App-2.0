@@ -374,6 +374,10 @@ header{
     #search-container{
         display: none;
     }
+    #greeting-title{
+        transform: translateX(-20px);
+    }
+
 }
 
 /* Home Page */
