@@ -46,8 +46,7 @@ document.getElementById('logo').addEventListener('click', () => {
         nav.classList.add('close');
         logOutIcon.classList.add('hide');
         newIcon.innerHTML = 
-        `   <i class='bx bx-log-out' id="icon-logout" onclick="logout()"></i>
+        `   <i class='bx bx-log-out nav-icon' onclick="logout()"></i>
             <ul class="sub-menu"><li onclick="logout()"><a class="link_name" href="#">Sair</a></li></ul>   `
     }
-
 })

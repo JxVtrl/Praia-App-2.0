@@ -296,22 +296,25 @@ function gratifyUser(user){
     // Pegando o documento do usuário
     db.collection('usuários').doc(user.email).get().then((doc) => {
         let hour = new Date().getHours();
-        let greeting = ''
         let greeting_span = document.getElementById('greeting');
+        let username_span = document.getElementById('user-first-name');
+
         // Se ele achar o documento do usuário
         if (doc.exists) {
             console.log("Document data:", doc.data());
 
             if(hour >= 5 && hour < 12) {
-                greeting = `Bom dia, ${doc.data().first_name}.`
+                greeting_span.innerHTML = `Bom dia`
+                username_span.innerHTML = `${doc.data().first_name}`
             }
             else if(hour >= 12 && hour < 18) {
-                greeting = `Boa tarde, ${doc.data().first_name}.`
+                greeting_span.innerHTML = `Boa tarde, ${doc.data().first_name}.`
+                username_span.innerHTML = `${doc.data().first_name}`
             }
             else {
-                greeting = `Boa noite, ${doc.data().first_name}.`
+                greeting_span.innerHTML = `Boa noite, ${doc.data().first_name}.`
+                username_span.innerHTML = `${doc.data().first_name}`
             }
-            greeting_span.innerHTML = greeting;
         }
         else {logout()}
         
