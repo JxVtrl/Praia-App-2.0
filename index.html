@@ -18,7 +18,7 @@
 <body>
     
     <!--- Landing Page -->
-    <div id="landing">
+    <div id="landing" class="hide">
         <div id="landing-card">
             <img src="midia/coconut.ico"/>
             <div id="landing-form">
@@ -28,8 +28,18 @@
                     <h2 class="titles-h2">Olá, faça seu login.</h2>
                     <div class="form-container">
                         <form autocomplete="off">
-                            <input type="text" name="username" placeholder="Usuário" class="form" id="username">
-                            <input type="password" placeholder="Senha" class="form" id="password" autocomplete="on">
+                            <input  type="text" 
+                                    name="username" 
+                                    placeholder="Usuário" 
+                                    class="form" 
+                                    id="username"
+                                >
+                            <input  type="password" 
+                                    placeholder="Senha" 
+                                    class="form" 
+                                    id="password" 
+                                    autocomplete="on"
+                                >
                             <div id="btn-container">
                                 <span id="form-span">Enviar</span>
                                 <button class="form-btn" type="button" id="login" onclick="loginUser()">Enviar</button>
@@ -45,14 +55,41 @@
                     <h2 class="titles-h2">Olá, faça seu cadastro.</h2>
                     <div class="form-container">
                         <form autocomplete="off">
-                            <input type="text" name="nome" placeholder="Nome completo" class="form" id="nome-cadastro">
-                            <input type="text" name="username" id="username-cadastro" class="form" placeholder="Nome de usuário">
-                            <input type="email" name="email"  placeholder="Email" class="form" id="email-cadastro" autocomplete="email">
-                            <input type="password" placeholder="Senha" class="form" id="password-cadastro" autocomplete="new-password">
-                            <input type="password" placeholder="Confirme sua senha" class="form" id="conf-password-cadastro" autocomplete="new-password">
+                            <input  type="text" 
+                                    name="nome" 
+                                    placeholder="Nome completo" 
+                                    class="form" 
+                                    id="nome-cadastro"
+                                >
+                            <input  type="text" 
+                                    name="username" 
+                                    placeholder="Nome de usuário"
+                                    class="form" 
+                                    id="username-cadastro" 
+                                >
+                            <input  type="email" 
+                                    name="email"  
+                                    placeholder="Email" 
+                                    class="form" 
+                                    id="email-cadastro" 
+                                >
+                            <input  type="password" 
+                                    placeholder="Senha" 
+                                    class="form" 
+                                    id="password-cadastro" 
+                                    autocomplete="new-password"
+                                >
+                            <input  type="password" 
+                                    placeholder="Confirme sua senha" 
+                                    class="form" 
+                                    id="conf-password-cadastro" 
+                                    autocomplete="new-password"
+                                >
                             <div id="btn-container">
-                                <span id="form-span">Enviar</span>
-                                <button class="form-btn" type="button" onclick="signIn(event)">Enviar</button>
+                                <span   id="form-span">Enviar</span>
+                                <button type="button"
+                                        class="form-btn"  
+                                        onclick="signIn(event)">Enviar</button>
                             </div>
                         </form>
                         <p class="login-link" id="cadastro-back">Já é cadastrado? Faça aqui seu login.</p>
@@ -76,7 +113,7 @@
     </div>
 
     <!-- Page Main -->
-    <div id="pageLoad" class="hide">
+    <div id="pageLoad" >
 
         <!--- Nav Menu -->
         <nav class="sidebar">
@@ -95,7 +132,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="#">
-                        <i class='bx bx-collection' ></i>
+                        <i class='bx bx-collection nav-icon' ></i>
                         <span class="link_name">Home</span>
                     </a>
                     <ul class="sub-menu blank">
@@ -105,10 +142,10 @@
                 <li class="nav-item" id="barraca-nav">
                     <div class="iocn-link">
                         <a href="#">
-                            <i class='bx bx-store'></i>
+                            <i class='bx bx-store nav-icon'></i>
                             <span class="link_name">Barracas</span>
                         </a>
-                        <i class="bx bxs-chevron-down arrow" id="barraca-arrow"></i>
+                        <i class="bx bxs-chevron-down arrow nav-icon" id="barraca-arrow"></i>
                     </div>
                     <ul class="sub-menu" id="barraca-menu">
                         <li><a class="link_name" href="#">Barracas</a></li>
@@ -120,10 +157,10 @@
                 <li class="nav-item" id="esportes-nav">
                     <div class="iocn-link">
                         <a href="#">
-                            <i class='bx bx-run'></i>
+                            <i class='bx bx-run nav-icon'></i>
                             <span class="link_name">Esportes</span>
                         </a>
-                        <i class="bx bxs-chevron-down arrow" id="esportes-arrow"></i>
+                        <i class="bx bxs-chevron-down arrow nav-icon" id="esportes-arrow"></i>
                     </div>
                     <ul class="sub-menu" id="esportes-menu">
                         <li><a class="link_name" href="#">Esportes</a></li>
@@ -133,7 +170,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="#">
-                        <i class='bx bx-landscape'></i>
+                        <i class='bx bx-landscape nav-icon'></i>
                         <span class="link_name">Explorar</span>
                     </a>
                     <ul class="sub-menu blank">
@@ -142,7 +179,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="#">
-                        <i class='bx bx-id-card'></i>
+                        <i class='bx bx-id-card nav-icon'></i>
                         <span class="link_name">Perfil</span>
                     </a>
                     <ul class="sub-menu blank">
@@ -151,7 +188,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="#">
-                      <i class='bx bx-cog'></i>
+                      <i class='bx bx-cog nav-icon'></i>
                       <span class="link_name">Ajustes</span>
                     </a>
                     <ul class="sub-menu blank">
@@ -165,19 +202,41 @@
 
         <!--- Main Content -->
         <main id="main-content">
+            <header>
+                <!-- User Greetings -->
+                <div id="greeting-title">
+                    <h4><span id="greeting"></span></h4>
+                    <h3><span id="user-first-name"></span></h3>
+                </div>
 
-            <!--- User Menu -->
-            <div id="user-menu">
-                
-            </div>
+                <!-- Search Bar -->
+                <div id="search-container">
+                    <i class='bx bx-search-alt' id="search-icon"></i>
+                    <input  type="text" 
+                            name="search" 
+                            id="search-bar" 
+                            placeholder="Ex: Amigos, Barracas, Esportes, etc"
+                        >
+                    <input  type="button" 
+                            value="Buscar" 
+                            id="search-button"
+                        >
+                </div>
 
+                <div id="header-icons">
+                    <i class='bx bx-bell header-icon' ></i>
+                    <i class='bx bx-chat header-icon'></i>
+                </div>
+
+
+
+            </header>
+
+            
+            
 
 
             
-            <!-- User Greetings -->
-            <h1 id="greeting-title">
-                <span id="greeting"></span>
-            </h1>
 
             
             
@@ -203,8 +262,8 @@
     <script src="https://unpkg.com/boxicons@2.0.9/dist/boxicons.js"></script> 
 
     <!--- Scripts --> 
-    <script src="landing/js/landing_script.js"></script>
     <script src="landing/js/auth.js"></script>
+    <script src="landing/js/main.js"></script>
     <script src="landing/js/nav.js"></script>
 </body>
 </html>
