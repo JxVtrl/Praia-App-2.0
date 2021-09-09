@@ -7,7 +7,7 @@ const Criadores = [
         Github: "https://github.com/JxVtrl/",
     },
     {
-        luizcipriano: "Luiz Cipriano",
+        Nome: "Luiz Cipriano",
         Github: "https://github.com/luizcipriano/",
     }
 ]
