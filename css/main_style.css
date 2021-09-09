@@ -286,7 +286,7 @@ header{
     font-family: var(--font-main);
     display: flex;
     
-    justify-content: space-between;
+    justify-content: space-around;
     background: rgb(0, 0, 0);
 
     padding: 10px 20px;
@@ -296,7 +296,7 @@ header{
     display: flex;
     flex-direction: column;
     color: white;
-    min-width: fit-content;
+    min-width: 120px;
 }
 
 #greeting{
@@ -352,10 +352,10 @@ header{
 
 #header-icons{
     display: flex;
-    width: 60px;
+    width: 120px;
 
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .header-icon{
@@ -370,16 +370,10 @@ header{
 
 /* Mobile */
 @media (max-width: 480px){
-    header{
-        padding-right: 5px;
-    }
 
     #search-container{
         display: none;
     }
-
-    
-
 }
 
 /* Home Page */
