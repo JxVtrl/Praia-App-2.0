@@ -25,9 +25,9 @@ const Criadores = [
 
 
 ### Landing Page
-    [✔] Design **A melhorar**
-    [✔] Inputs
-    [] *Credenciamento*
+    - [✔] Design **A melhorar**
+    - [✔] Inputs
+    - [ ] Credenciamento
         ✔ Login Interno
         ✔ Verificar Email ao Cadastrar
         ✔ Salvar Nome e Email no Banco de Dados
@@ -35,7 +35,7 @@ const Criadores = [
 
 
 ### Main Page
-    [] Menu de Navegação
+    - [] Menu de Navegação
         * Web (Topo)
             - Logo
             - Home
@@ -50,13 +50,13 @@ const Criadores = [
             - Esportes
             - Config
 
-    [] Background da página
+    - [] Background da página
         * Cor Estática
 
-    [] Gratificação
+    - [] Gratificação
         * Gratificação ao usuário
 
-    [] Cards (Scroll Horizontal ou Vertical)
+    - [] Cards (Scroll Horizontal ou Vertical)
         * Tempo Hoje
             - Background do tempo (gif ou png)
             - Título do card (Cidade)
@@ -74,7 +74,7 @@ const Criadores = [
 
         * ... Outros cards
 
-    [] Extra Icons
+    - [] Extra Icons
         * App (Top-Right corner)
             - Mapa
             - Música
