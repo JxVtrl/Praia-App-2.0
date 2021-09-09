@@ -285,8 +285,10 @@ main{
 header{
     font-family: var(--font-main);
     display: flex;
-    
-    justify-content: space-around;
+    z-index: 998;
+    width: 100%;
+
+    justify-content: space-between;
     background: rgb(0, 0, 0);
 
     padding: 10px 20px;
@@ -352,10 +354,11 @@ header{
 
 #header-icons{
     display: flex;
-    width: 120px;
-
+    flex: none;
+    gap: 12px;
+    width: fit-content;
     align-items: center;
-    justify-content: space-evenly;
+    
 }
 
 .header-icon{
@@ -374,9 +377,7 @@ header{
     #search-container{
         display: none;
     }
-    #greeting-title{
-        transform: translateX(-20px);
-    }
+    
 
 }
 
