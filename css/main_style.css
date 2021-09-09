@@ -277,7 +277,7 @@ input:focus{
 
 /* Main Content ================= */
 main{
-    width: 100%;
+    width: 100vw;
     height: 100%;
 }
 
@@ -285,8 +285,8 @@ main{
 header{
     font-family: var(--font-main);
     display: flex;
+    
     justify-content: space-between;
-    width: 100%;
     background: rgb(0, 0, 0);
 
     padding: 10px 20px;
@@ -297,8 +297,6 @@ header{
     flex-direction: column;
     color: white;
     min-width: fit-content;
-    
-    flex-wrap: nowrap;
 }
 
 #greeting{
@@ -318,7 +316,7 @@ header{
     height: 30px;
     width: 100%;
     max-width: 400px;
-    margin-left: 35px;
+    margin: 0 35px;
     padding: 10px 0 10px 10px;
     
     border-radius: 10px;
@@ -354,15 +352,14 @@ header{
 
 #header-icons{
     display: flex;
-    width: 120px;
-    min-width: 120px;
+    width: 60px;
 
     align-items: center;
     justify-content: space-around;
-    color: white;
 }
 
 .header-icon{
+    color: white;
     cursor: pointer;
     font-size: 22px;
 }
@@ -381,10 +378,7 @@ header{
         display: none;
     }
 
-    #header-icons{
-        width: 80px;
-        min-width: 80px;
-    }
+    
 
 }
 
