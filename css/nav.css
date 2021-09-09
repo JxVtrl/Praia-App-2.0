@@ -5,7 +5,7 @@
   font-family: 'Poppins', sans-serif;
   top: 0;
   left: 0;
-  height: 100%;
+  height: 100vh;
   width: 260px;
   background: #11101d;
   transition: all 0.5s ease;
@@ -70,7 +70,7 @@
 .sidebar.close .nav-list li .iocn-link{
   display: block
 }
-.sidebar .nav-list li i{
+.nav-icon{
   height: 50px;
   min-width: 75px;
   text-align: center;
@@ -80,6 +80,22 @@
   cursor: pointer;
   transition: all 0.3s ease;
 }
+
+#logo{
+  cursor: pointer;
+}
+
+#icon-logout{
+  height: 50px;
+  min-width: 50px;
+  text-align: center;
+  line-height: 50px;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
 .sub-menu.showMenu .arrow{
   transform: rotate(-180deg);
 }
