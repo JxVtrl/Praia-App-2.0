@@ -322,13 +322,6 @@ header{
     border-radius: 10px;
 }
 
-@media (max-width: 490px){
-    #search-container{
-        display: none;
-    }
-
-}
-
 #search-bar{
     width: 100%;
     border: none;
@@ -374,6 +367,18 @@ header{
 
 .header-icon:hover{
     color: #cccbcb;
+}
+
+@media (max-width: 450px){
+    header{
+        padding-right: 5px;
+    }
+
+    #search-container{
+        display: none;
+    }
+
+
 }
 
 
