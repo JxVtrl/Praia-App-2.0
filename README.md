@@ -22,6 +22,8 @@ const Criadores = [
     - Google Identity Toolkit (Firebase Auth)
     - Google Cloud Storage (Firestore Database)
     - Google Maps
+    - NewsAPI (Google News)
+        - https://newsapi.org/v2/top-headlines?sources=google-news-br&apiKey=57dc0b7222be4b2798768f80dfc8e810
 
 
 ### Landing Page
@@ -41,6 +43,7 @@ const Criadores = [
             - Home
             - Barracas
             - Esportes
+            - Notícias
             - Perfil
             - Config
 
@@ -113,4 +116,11 @@ const Criadores = [
                 - Promoções (True/False - Se tiver)
 
                 - Comprar Produto da barraca selecionada
+
+### Esportes Card Page
+
+
+
+### Notícias Card Page (Google News API)
+    * Cards de Notícias
 

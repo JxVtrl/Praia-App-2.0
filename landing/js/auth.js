@@ -34,9 +34,10 @@ window.addEventListener("load", function(){
 
         if (user) {
             // User is signed in.
+            gratifyUser(user);
                 setTimeout(()=>{
                     landing.style.display = "none";
-                    pageLoad.style.display = "block";
+                    pageLoad.style.display = "flex";
                 }, 2000)
         
         } else {
@@ -78,6 +79,7 @@ function loginUser(){
                         document.getElementById("password").style.borderColor = "green"; 
         
                         console.log('User logged');
+                        
                     }
                 })
                 .catch((error) => {
@@ -289,31 +291,30 @@ function firstName(name){
     return name_split[0].charAt(0).toUpperCase() + name_split[0].slice(1);
 }
 
+
 // Gratificando o usuário
 function gratifyUser(user){
-    let hour = new Date().getHours();
-    let greeting_span = document.getElementById('greeting');
-    
-
     // Pegando o documento do usuário
     db.collection('usuários').doc(user.email).get().then((doc) => {
+        let hour = new Date().getHours();
+        let greeting = ''
+        let greeting_span = document.getElementById('greeting');
         // Se ele achar o documento do usuário
         if (doc.exists) {
             console.log("Document data:", doc.data());
 
             if(hour >= 5 && hour < 12) {
-                greeting_span.innerHTML = `Bom dia, ${doc.data().first_name}.`
+                greeting = `Bom dia, ${doc.data().first_name}.`
             }
             else if(hour >= 12 && hour < 18) {
-                greeting_span.innerHTML = `Boa tarde, ${doc.data().first_name}.`
+                greeting = `Boa tarde, ${doc.data().first_name}.`
             }
             else {
-                greeting_span.innerHTML = `Boa noite, ${doc.data().first_name}.`
+                greeting = `Boa noite, ${doc.data().first_name}.`
             }
-            
-        
-        } 
-        else logout()
+            greeting_span.innerHTML = greeting;
+        }
+        else {logout()}
         
     }).catch((error) => {
         console.log("Error getting document:", error);
