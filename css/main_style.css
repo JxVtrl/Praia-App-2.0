@@ -234,6 +234,9 @@ input:focus{
 }
 
 /* MAIN */
+#pageLoad{
+    overflow-y: hidden;
+}
 /* Nav Content ================= */
 #profile-container{
     display: flex;

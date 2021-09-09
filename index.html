@@ -127,7 +127,7 @@
                         <div class="profile-content">
                             <img alt="img-perfil" src="midia/et.ico" id="img-pic">
                         </div>
-                        <i class='bx bx-log-out' id="icon-logout" onclick="logout()"></i>
+                        <i class='bx bx-log-out hide' id="icon-logout" onclick="logout()"></i>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -196,6 +196,12 @@
                     </ul>
                 </li>
                 <li class="nav-item" id="newLogOutIcon">
+                    <i class='bx bx-log-out nav-icon' onclick="logout()"></i>
+                    <ul class="sub-menu">
+                        <li onclick="logout()">
+                            <a class="link_name" href="#">Sair</a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </nav>
