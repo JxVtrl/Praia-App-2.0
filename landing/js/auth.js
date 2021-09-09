@@ -21,29 +21,27 @@
 })()
 
 window.addEventListener("load", function(){
+    // Limpar valores do formulário
+    document.getElementById('username').value = ''
+    document.getElementById('password').value = ''
+    document.getElementById("username").style.border = 'none' 
+    document.getElementById("password").style.border = 'none' 
+
     // Identifica se o usuário está logado
     firebase.auth().onAuthStateChanged(function(user) {
         var landing = document.getElementById('landing');
-        var main = document.getElementById('main');
+        var pageLoad = document.getElementById('pageLoad');
 
         if (user) {
             // User is signed in.
                 setTimeout(()=>{
-                    main.style.display = "block";
                     landing.style.display = "none";
-
-                    // Limpar valores do formulário
-                    document.getElementById('username').value = ''
-                    document.getElementById('password').value = ''
-                    document.getElementById("username").style.border = 'none' 
-                    document.getElementById("password").style.border = 'none' 
-
+                    pageLoad.style.display = "block";
                 }, 2000)
-                gratifyUser(user)
         
         } else {
             // No user is signed in.
-            main.style.display = 'none';
+            pageLoad.style.display = 'none';
             landing.style.display = 'block';
         }
     });
@@ -194,7 +192,7 @@ function signIn(){
                 document.getElementById("username-cadastro").style.borderColor = "red";
             }
             else{
-                // Verifica se o usuário já existe
+                // Verifica se o usuário já existe no banco de dados
                 db.collection("usuários").where("username", "==", username_cadastro).get()
                 .then(function(querySnapshot) {
                     querySnapshot.forEach(function(doc) {
@@ -211,8 +209,10 @@ function signIn(){
                 db.collection("usuários").where("username", "!=", username_cadastro).get()
                 .then(function(querySnapshot) {
                     querySnapshot.forEach(function(doc) {
+
                     // Cadastra o usuário
                     firebase.auth().createUserWithEmailAndPassword(email_cadastro, password_cadastro)
+                        // Se cadastrou com sucesso
                         .then((userCredential) => {
                             var user = userCredential.user;
 
@@ -222,7 +222,7 @@ function signIn(){
                                 email: email_cadastro
                             }
 
-                            // Chamada do banco de dados
+                            // Envia os dados do usuário para o banco de dados
                             addDataBase(user, userInfo);
                 
                             // Envia email de verificação
@@ -232,6 +232,7 @@ function signIn(){
                                 location.reload();
                             })
                         })
+                        // Se ocorrer algum erro no cadastro
                         .catch((error) => {
                             var errorCode = error.code;
                             var errorMessage = error.message;
@@ -261,8 +262,10 @@ function signIn(){
 
 // Adicionar dados do usuário no banco de dados
 var db = firebase.firestore();
-function addDataBase(user, info){
 
+// Adicionar dados do usuário no banco de dados
+function addDataBase(user, info){
+    // Seta os dados do usuário para enviar para o banco de dados
     db.collection("usuários").doc(info.email).set({
         name: info.nome,
         first_name: firstName(info.nome),
@@ -270,9 +273,11 @@ function addDataBase(user, info){
         email: info.email,
         id: user.uid
 
+        // Se conseguir cadastrar o usuário
     }).then(() => {
         console.log("Document written sucessfully!");
     })
+        // Se não conseguir cadastrar o usuário
     .catch((error) => {
         console.error("Error writing document: ", error);
     });
@@ -288,31 +293,28 @@ function firstName(name){
 function gratifyUser(user){
     let hour = new Date().getHours();
     let greeting_span = document.getElementById('greeting');
-    let greeting = '';
+    
 
     // Pegando o documento do usuário
-    var doc_usuarios = db.collection('usuários').doc(user.email);
-
-    doc_usuarios.get().then((doc) => {
+    db.collection('usuários').doc(user.email).get().then((doc) => {
         // Se ele achar o documento do usuário
         if (doc.exists) {
             console.log("Document data:", doc.data());
 
-            if(hour >= 5 && hour < 12){
-                greeting = `Bom dia, ${doc.data().first_name}.`
+            if(hour >= 5 && hour < 12) {
+                greeting_span.innerHTML = `Bom dia, ${doc.data().first_name}.`
             }
-            else if(hour >= 12 && hour < 18){
-                greeting = `Boa tarde, ${doc.data().first_name}.`
+            else if(hour >= 12 && hour < 18) {
+                greeting_span.innerHTML = `Boa tarde, ${doc.data().first_name}.`
             }
-            else{
-                greeting = `Boa noite, ${doc.data().first_name}.`
+            else {
+                greeting_span.innerHTML = `Boa noite, ${doc.data().first_name}.`
             }
-
-            greeting_span.innerHTML = greeting
+            
         
-        } else {
-            logout()
-        }
+        } 
+        else logout()
+        
     }).catch((error) => {
         console.log("Error getting document:", error);
     });
