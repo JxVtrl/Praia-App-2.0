@@ -286,7 +286,7 @@ header{
     font-family: var(--font-main);
     display: flex;
     justify-content: space-between;
-
+    width: 100%;
     background: rgb(0, 0, 0);
 
     padding: 10px 20px;
