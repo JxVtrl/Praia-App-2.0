@@ -381,6 +381,11 @@ header{
         display: none;
     }
 
+    #header-icons{
+        width: 80px;
+        min-width: 80px;
+    }
+
 }
 
 /* Home Page */
