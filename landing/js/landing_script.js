@@ -61,7 +61,7 @@ esportes_nav.addEventListener('click', function(){
 
 let nav = document.querySelector('.sidebar');
 let logOutIcon = document.getElementById('icon-logout')
-let newIcon = document.getElementById('newIcon-li');
+let newIcon = document.getElementById('newLogOutIcon');
 
 document.getElementById('logo').addEventListener('click', () => {
     if(nav.classList.contains('close')){
