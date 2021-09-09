@@ -30,8 +30,6 @@
 }
 
 img{
-    max-width: 100%;
-    height: auto;
     cursor: pointer;
 }
 
@@ -197,12 +195,6 @@ input:focus{
     animation: animation 1.05s steps(22) forwards infinite;
 }
 
-
-#esqueci-email{
-    width: 100%;
-    margin: 10px auto;
-}
-
 @keyframes animation {
     from {
         -webkit-mask-position: 0 0;
@@ -225,6 +217,11 @@ input:focus{
     }
 }
 
+#esqueci-email{
+    width: 100%;
+    margin: 10px auto;
+}
+
 .login-link{
     cursor: pointer;
     margin: 15px auto 0;
@@ -235,6 +232,8 @@ input:focus{
     text-decoration: underline;
 }
 
+/* MAIN */
+/* Nav Content ================= */
 #profile-details{
     display: flex;
     align-items: center;
@@ -246,15 +245,31 @@ input:focus{
 }
 
 #img-pic{
-    background: #1d1b31;
-    
     width: 50px;
     height: 50px;
     object-fit: cover;
 
     border-radius: 16px;
     padding: 10px;
+
+    transition: all 0.3s ease;
 }
 
-/* Main Content ================= */
+#img-pic:hover{
+    background: #1d1b31;
+}
+
+#icon-logout{
+    width: fit-content;
+    height: fit-content;
+    object-fit: cover;
+
+    border-radius: 16px;
+}
+
+#icon-logout:hover{
+    background: #1d1b31;
+}
+
+
     
