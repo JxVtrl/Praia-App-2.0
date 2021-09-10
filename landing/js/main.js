@@ -12,7 +12,6 @@ function formatNumber(num){
 /////////////////////
 
 setInterval(getTimeNow, 1000);
-
 function getTimeNow(){
     let today = new Date();
     let h = today.getHours();
@@ -28,23 +27,63 @@ function getTimeNow(){
 ////////////////
 // Carrossel //
 //////////////
-
 let carrossel = document.querySelector('#carrossel');
 let carrossel_item_width = document.getElementById('carrossel-container').clientWidth
-let controle = 0
+let botoes_carrossel = document.getElementById('botoes-carrossel');
+let index = 0
+let controle = 0 
+let reverse = false
 
-function moveCarrossel(){
-    controle += carrossel_item_width
-    if(controle >= carrossel_item_width*carrossel.childElementCount){
-        controle = 0;
+setInterval(carrosselMove, 2500);
+function carrosselMove(){
+    if(reverse == true){
+        index--
+        controle -= carrossel_item_width
+        
+        carrossel.style.transform = 'translateX(' + -controle + 'px)';
+        createCarrosselBotoes(index)
+        if(index == 0){
+            reverse = false
+            index, controle = 0,0
+            carrosselMove()
+        }
     }
+    else{
+        carrossel.style.transform = 'translateX(' + -controle + 'px)';
+        createCarrosselBotoes(index)
 
-    carrossel.style.transform = 'translateX(' + -controle + 'px)';
+        index++
+        controle += carrossel_item_width
+        if(index >= carrossel.childElementCount){
+            reverse = true
+            carrosselMove()
+        }
+    }
 }
 
-setInterval(moveCarrossel, 4000);
+// Criar botoes do carrossel
+createCarrosselBotoes(0)
+function createCarrosselBotoes(index){
+    botoes_carrossel.innerHTML = ''
+    for(let i = 0; i < carrossel.childElementCount; i++){
+        botoes_carrossel.innerHTML += 
+        `<i class='bx bx-radio-circle botao-carrossel'></i>`;
+    }  
+    if(botoes_carrossel.children[index].classList.contains('bx-radio-circle')){
+        botoes_carrossel.children[index].classList.remove('bx-radio-circle')
+        botoes_carrossel.children[index].classList.add('bx-radio-circle-marked')
+    }
+}
+
+// Botoes do carrossel
+let todos_botoes_carrossel = document.querySelectorAll('.botao-carrossel')
+todos_botoes_carrossel.forEach(botao => {
+    botao.addEventListener('click', e => {
+        alert('clicou')
+
+
+    })
+})
 
 
 
-
-    
