@@ -52,25 +52,10 @@ function carrosselBotoes(index){
 let todos_botoes_carrossel = document.querySelectorAll('.botao-carrossel')
 todos_botoes_carrossel.forEach(botao => {
     botao.addEventListener('click', e => {
-        id = e.target.id
+        let p = e.target.parentElement;
+        let botaoIndex = Array.prototype.indexOf.call(p.children, e.target);
 
-        switch(id){
-            case 'botao-1':
-                index = 0
-                controle = 0
-                reverse = false
-                break;
-            case 'botao-2':
-                index = 1
-                controle = carrossel_item_width * index
-                break;
-            case 'botao-3':
-                index = 2
-                controle = carrossel_item_width * index
-                break;
-        }
-
-        carrossel.style.transform = 'translateX(' + -controle + 'px)';
-        carrosselBotoes(index)
+        carrossel.style.transform = 'translateX(' + -(carrossel_item_width * botaoIndex) + 'px)';
+        carrosselBotoes(botaoIndex)
     })
 })
