@@ -15,7 +15,6 @@
   width: 75px;
   
 }
-
 .sidebar .logo-details{
   height: 60px;
   width: 100%;
@@ -83,11 +82,9 @@
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
 #logo{
   cursor: pointer;
 }
-
 #icon-logout{
   height: 50px;
   min-width: 50px;
@@ -98,7 +95,6 @@
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
 .sub-menu.showMenu .arrow{
   transform: rotate(-180deg);
 }
@@ -179,4 +175,40 @@
 .sidebar .nav-list li:hover .sub-menu.blank{
   top: 50%;
   transform: translateY(-50%);
+}
+
+
+/* Minhas Alterações */
+#picture-container{
+  display: flex;
+  align-items: center;
+  
+  width: 100%;
+  padding: 0 15px 0 15px;
+  margin-bottom: 25px;
+  justify-content: space-between;
+}
+
+#img-pic{
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+
+  border-radius: 16px;
+  padding: 10px;
+
+  transition: all 0.3s ease;
+}
+
+#img-pic:hover{
+  background: #1d1b31;
+}
+
+#icon-logout{    
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+#icon-logout:hover{
+  background: #1d1b31;
 }
