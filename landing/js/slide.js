@@ -36,6 +36,40 @@ function carrosselMove(){
     }
 }
 
+// Mover Carrossel pelo Scroll
+document.getElementById('carrossel-container').addEventListener('mousewheel', function(e){
+    // Se rolar mais que deve para baixo
+    if(index <= 0 && e.deltaY > 0){
+        index = carrossel.childElementCount - 1
+        controle = carrossel_item_width * index
+        reverse = true
+        carrosselBotoes(index)
+        carrossel.style.transform = 'translateX(' + -controle + 'px)';
+    }
+    // Se rolar mais que deve para cima
+    else if(controle >= carrossel_item_width*2 && e.deltaY < 0){
+        index = 0
+        controle = 0
+        reverse = false
+        carrosselBotoes(index)
+        carrossel.style.transform = 'translateX(' + -controle + 'px)';
+    }
+    else{
+        if(e.deltaY < 0){
+            index++
+            controle += carrossel_item_width
+            carrossel.style.transform = 'translateX(' + -controle + 'px)';
+            carrosselBotoes(index)
+        }
+        else{
+            index--
+            controle -= carrossel_item_width
+            carrossel.style.transform = 'translateX(' + -controle + 'px)';
+            carrosselBotoes(index)
+        }
+    }
+})
+
 // Criar botoes do carrossel
 function carrosselBotoes(index){
     for(let i = 0; i < carrossel.childElementCount; i++){
@@ -59,3 +93,5 @@ todos_botoes_carrossel.forEach(botao => {
         carrosselBotoes(botaoIndex)
     })
 })
+
+
