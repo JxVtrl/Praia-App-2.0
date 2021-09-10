@@ -14,6 +14,8 @@
     <!-- Linked CSS -->
     <link rel="stylesheet" href="css/main_style.css">
     <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/carrossel.css">
 </head>
 <body>
     
@@ -123,8 +125,8 @@
             </div>
             <ul class="nav-list">
                 <li class="nav-item">
-                    <div id="profile-container">
-                        <div class="profile-content">
+                    <div id="picture-container">
+                        <div class="picture-content">
                             <img alt="img-perfil" src="midia/et.ico" id="img-pic">
                         </div>
                         <i class='bx bx-log-out hide' id="icon-logout" onclick="logout()"></i>
@@ -234,9 +236,9 @@
                     <i class='bx bx-chat header-icon'></i>
                 </div>
             </header>
-            <div id="home">
-                <div id="carrossel-container">
-                    <div id="carrossel">
+            <div id="home" class="hide">
+                <div id="carrossel">
+                    <div id="carrossel-container">
                         <section id="tempo-card" class="card">
                             <img src="https://images.unsplash.com/photo-1533324268742-60b233802eef?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c3Vubnl8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60" alt="Imagem do Tempo Atual" class="card-img">
                             <div class="img-description">
@@ -279,6 +281,39 @@
 
 
             </div>
+            <div id="profile">
+                <div id="profile-container">
+                    <h1>Geral da conta</h1>
+                    <div id="profile-img-container">
+                        <img src="midia/et.ico" alt="profile picture" id="profile-img">
+                    </div>
+                    <div id="profile-info-container">
+                        <div id="name-box" class="infoBox">
+                            <h4 class="profile-label">Nome</h4>
+                            <h5 id="profile-name" class="profile-info"><span>João Vinicius Vitral</span></h5>
+                        </div>
+                        <div id="username-box" class="infoBox">
+                            <h4 class="profile-label">Usuário</h4>
+                            <h5 id="profile-username" class="profile-info"><span>joaovitral</span></h5>
+                        </div>
+                        <div id="email-box" class="infoBox">
+                            <h4 class="profile-label">Email</h4>
+                            <h5 id="profile-email" class="profile-info"><span>joaoviniciusvitral@hotmail.com</span></h5>
+                        </div>
+                        <div id="birth-box" class="infoBox">
+                            <h4 class="profile-label">Data de Nascimento</h4>
+                            <h5 id="profile-birth" class="profile-info"><span>05/12/2000</span></h5>
+                        </div>
+                        <div id="cel-box" class="infoBox">
+                            <h4 class="profile-label">Celular</h4>
+                            <h5 id="profile-cel" class="profile-info"><span>(021) 96676-7962</span></h5>
+                        </div>
+                        <button class="editarBtn">Editar perfil</button>
+                    
+                        
+                    </div>
+                </div>
+            </div>
 
             
         
@@ -306,5 +341,6 @@
     <script src="landing/js/main.js"></script>
     <script src="landing/js/nav.js"></script>
     <script src="landing/js/slide.js"></script>
+    <script src="landing/js/profile.js"></script>
 </body>
 </html>
