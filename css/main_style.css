@@ -437,6 +437,23 @@ header{
     border-radius: 10px;
 }
 
+#botoes-carrossel{
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width: fit-content;
+}
+
+.botao-carrossel{
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+.botao-carrossel:hover{
+    color: #a9a9a9;
+}
+
 
 
     
