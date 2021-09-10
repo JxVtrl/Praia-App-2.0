@@ -37,7 +37,7 @@ function carrosselMove(){
 }
 
 // Mover Carrossel pelo Scroll
-document.getElementById('carrossel-container').addEventListener('mousewheel', function(e){
+document.getElementById('carrossel-container').addEventListener('wheel', function(e){
     // Se rolar mais que deve para baixo
     if(index <= 0 && e.deltaY > 0){
         index = carrossel.childElementCount - 1
@@ -76,10 +76,8 @@ function carrosselBotoes(index){
         botoes_carrossel.children[i].classList.remove('bx-radio-circle-marked')
         botoes_carrossel.children[i].classList.add('bx-radio-circle')
     }
-    if(botoes_carrossel.children[index].classList.contains('bx-radio-circle')){
-        botoes_carrossel.children[index].classList.remove('bx-radio-circle')
-        botoes_carrossel.children[index].classList.add('bx-radio-circle-marked')
-    }
+    botoes_carrossel.children[index].classList.remove('bx-radio-circle')
+    botoes_carrossel.children[index].classList.add('bx-radio-circle-marked')
 }
 
 // Mover Carrossel pelos botoes
