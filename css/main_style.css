@@ -399,16 +399,18 @@ header{
     width: 350px;
     margin: auto;
     border-radius: 10px;
-    overflow: hidden;
+    overflow-x: hidden;
+    
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
 }
 
 #carrossel{
     display: flex;
-
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
     transition: transform 1s ease-in-out;
+    pointer-events: none;
+    scroll-snap-align: start;
 }
 
 .card{
@@ -417,8 +419,6 @@ header{
     height: 250px;
     
     overflow: hidden;
-    scroll-snap-align: start;
-    pointer-events: none;
 }
 
 .card-img{
