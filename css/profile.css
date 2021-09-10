@@ -1,0 +1,77 @@
+/* Profile Page */
+
+#profile{
+    width: 100%;
+    height: 100%;
+    background-color: var(--secondary-color);
+}
+
+#profile-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    padding: 15px;
+    width: min(60vw, 600px);
+    
+}
+
+#profile-container h1{
+    font-size: 24px;
+    font-weight: 600;
+    text-align: left;
+    width: 100%;
+}
+
+#profile-img{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+#profile-info-container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.infoBox{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    width: 100%;
+    justify-content: space-between;
+
+    border: 1px solid rgb(133, 255, 137);
+}
+
+.profile-label{
+    font-family: var(--font-secondary);
+    font-size: 0.65rem;
+    background-color: var(--secondary-color);
+    padding: 0 2px;
+    transform: translateY(-17px);
+}
+
+.profile-info{
+    font-family: var(--font-main);
+    font-weight: 400;
+    font-size: 0.80rem;
+}
+
+.editarBtn{
+    width: 100px;
+    height: 35px;
+    font-family: var(--font-main);
+    background-color: var(--secondary-color);
+    border-color: cornflowerblue;
+    cursor: pointer;
+}
+
+.editarBtn:hover{
+    background-color: rgb(238, 238, 238);
+}
+
+    
