@@ -294,11 +294,18 @@ header{
     padding: 10px 20px;
 }
 
+.header-size{
+    min-width: 90px;
+    display: flex;
+    justify-content: center;
+    
+}
+
 #greeting-title{
     display: flex;
     flex-direction: column;
     color: white;
-    min-width: 120px;
+    
 }
 
 #greeting{
@@ -356,9 +363,8 @@ header{
     display: flex;
     flex: none;
     gap: 12px;
-    width: fit-content;
-    align-items: center;
     
+    align-items: center;
 }
 
 .header-icon{
