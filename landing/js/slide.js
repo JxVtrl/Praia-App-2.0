@@ -47,7 +47,7 @@ document.getElementById('carrossel-container').addEventListener('wheel', functio
         carrossel.style.transform = 'translateX(' + -controle + 'px)';
     }
     // Se rolar mais que deve para cima
-    else if(controle >= carrossel_item_width*2 && e.deltaY < 0){
+    else if(controle >= carrossel_item_width*(carrossel.childElementCount-1) && e.deltaY < 0){
         index = 0
         controle = 0
         reverse = false
