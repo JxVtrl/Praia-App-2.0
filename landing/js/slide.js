@@ -1,8 +1,8 @@
 ////////////////
 // Carrossel //
 //////////////
-let carrossel = document.querySelector('#carrossel');
-let carrossel_item_width = document.getElementById('carrossel-container').clientWidth
+let carrossel = document.querySelector('#carrossel-container');
+let carrossel_item_width = document.getElementById('carrossel').clientWidth
 let botoes_carrossel = document.getElementById('botoes-carrossel');
 let index = 0
 let controle = 0 
@@ -37,7 +37,7 @@ function carrosselMove(){
 }
 
 // Mover Carrossel pelo Scroll
-document.getElementById('carrossel-container').addEventListener('wheel', function(e){
+document.getElementById('carrossel').addEventListener('wheel', function(e){
     // Se rolar mais que deve para baixo
     if(index <= 0 && e.deltaY > 0){
         index = carrossel.childElementCount - 1
