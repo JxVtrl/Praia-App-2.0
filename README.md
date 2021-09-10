@@ -59,8 +59,8 @@ const Criadores = [
     - [] Gratificação
         * Gratificação ao usuário
 
-    - [] Cards (Carroussel)
-        * Tempo Hoje
+    - [] Cards (Carrossel)
+        * Tempo do Dia
             - Background do tempo (gif ou png)
             - Título do card (Cidade)
             - Descrição rápida do tempo e temperatura
@@ -70,10 +70,13 @@ const Criadores = [
             - Título (Barracas & comercio local)
             - Alugue seu espaço na praia
 
-        * Esporte
+        * Esportes
             - Background (Img de esportes jogados na praia aleatoriamente)
             - Título (Esportes)
             - Encontre ou monte seu time
+
+        * Notícias
+            
 
         * ... Outros cards
 
