@@ -13,7 +13,9 @@
     --font-secondary: 'Roboto', sans-serif;
 
     /** colors */
-    --main-color: #f7f7f7;
+    --main-color: #11101d;
+    --secondary-color: #fff;
+    --third-color: #f7f7f7;
 
     /** blur */
     --blur-porcentage: 0px;
@@ -240,42 +242,7 @@ input:focus{
     overflow: hidden;
     position: fixed;
 }
-/* Nav Content ================= */
-#profile-container{
-    display: flex;
-    align-items: center;
-    
-    width: 100%;
-    padding: 0 15px 0 15px;
-    margin-bottom: 25px;
-    justify-content: space-between;
-}
 
-#img-pic{
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-
-    border-radius: 16px;
-    padding: 10px;
-
-    transition: all 0.3s ease;
-}
-
-#img-pic:hover{
-    background: #1d1b31;
-}
-
-#icon-logout{    
-    object-fit: cover;
-    border-radius: 16px;
-}
-
-#icon-logout:hover{
-    background: #1d1b31;
-}
-
-/* Main Content ================= */
 main{
     width: 100vw;
     height: 100%;
@@ -393,73 +360,5 @@ header{
     height: 100%;
     margin-top: 20px;
 }
-
-/* Carrossel */
-#carrossel-container{
-    width: 350px;
-    margin: auto;
-    border-radius: 10px;
-    overflow-x: hidden;
-    
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
-}
-
-#carrossel{
-    display: flex;
-    transition: transform 1s ease-in-out;
-    pointer-events: none;
-    scroll-snap-align: start;
-}
-
-.card{
-    flex: none;
-    width: 100%;
-    height: 250px;
-    
-    overflow: hidden;
-}
-
-.card-img{
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-}
-
-.img-description{
-    background-color: #c0c0c073;
-    color: white;
-
-    font-family: var(--font-main);
-    transform: translateY(-85px);
-    
-    width: fit-content;
-    margin: 0 auto;
-    padding: 10px;
-
-    text-shadow: 0 0 14px black;
-    border-radius: 10px;
-}
-
-#botoes-carrossel{
-    display: flex;
-    align-items: center;
-    margin: auto;
-    width: fit-content;
-}
-
-.botao-carrossel{
-    cursor: pointer;
-    font-size: 16px;
-    transition: all 0.3s ease-in-out;
-}
-
-.botao-carrossel:hover{
-    color: #a9a9a9;
-}
-
-
 
     
