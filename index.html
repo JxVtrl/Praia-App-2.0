@@ -210,6 +210,7 @@
         
         <!--- Main Content -->
         <main id="main-content">
+            <!-- Header -->
             <header>
                 <!-- User Greetings -->
                 <div id="greeting-title" class="header-size">
@@ -236,6 +237,7 @@
                     <i class='bx bx-chat header-icon'></i>
                 </div>
             </header>
+            <!-- Home  -->
             <div id="home" class="hide">
                 <div id="carrossel">
                     <div id="carrossel-container">
@@ -277,10 +279,12 @@
                     <i class='bx botao-carrossel'></i>
                     <i class='bx botao-carrossel'></i>
                 </div>
+                <!-- Continua -->
 
-
-
+                <!-- ... -->
             </div>
+
+            <!-- Profile -->
             <div id="profile">
                 <div id="profile-container">
                     <h1>Geral da conta</h1>
@@ -290,25 +294,28 @@
                     <div id="profile-info-container">
                         <div id="name-box" class="infoBox">
                             <h4 class="profile-label">Nome</h4>
-                            <h5 id="profile-name" class="profile-info"><span>João Vinicius Vitral</span></h5>
+                            <h5 id="profile-name" class="profile-info"></h5>
                         </div>
                         <div id="username-box" class="infoBox">
                             <h4 class="profile-label">Usuário</h4>
-                            <h5 id="profile-username" class="profile-info"><span>joaovitral</span></h5>
+                            <h5 id="profile-username" class="profile-info"></h5>
                         </div>
                         <div id="email-box" class="infoBox">
                             <h4 class="profile-label">Email</h4>
-                            <h5 id="profile-email" class="profile-info"><span>joaoviniciusvitral@hotmail.com</span></h5>
+                            <h5 id="profile-email" class="profile-info"></h5>
                         </div>
                         <div id="birth-box" class="infoBox">
                             <h4 class="profile-label">Data de Nascimento</h4>
-                            <h5 id="profile-birth" class="profile-info"><span>05/12/2000</span></h5>
+                            <h5 id="profile-birth" class="profile-info"></h5>
                         </div>
                         <div id="cel-box" class="infoBox">
                             <h4 class="profile-label">Celular</h4>
-                            <h5 id="profile-cel" class="profile-info"><span>(021) 96676-7962</span></h5>
+                            <h5 id="profile-phone" class="profile-info"></h5>
                         </div>
-                        <button class="editarBtn">Editar perfil</button>
+                        <div class="infoBox" style="border: none;">
+                            <button class="editarBtn">Editar perfil</button>
+                            <button class="enviarBtn" disabled="disabled">Salvar</button>
+                        </div>
                     
                         
                     </div>
@@ -316,17 +323,17 @@
             </div>
 
             
-        
         </main>
 
     </div>
 
     
+    <!-- ===================== -->
+    <!-- SCRIPTS ============= -->
+    <!-- ===================== -->
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/8.0/firebase.js"></script> 
-        <!-- Firebase Identity -->
     <script src="https://www.gstatic.com/firebasejs/ui/5.0.0/firebase-ui-auth.js"></script> 
-        <!-- Firebase Database -->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script> 
 
     <!-- IonIcons -->
@@ -336,11 +343,11 @@
     <!-- BoxIcons -->
     <script src="https://unpkg.com/boxicons@2.0.9/dist/boxicons.js"></script> 
 
-    <!--- Scripts --> 
-    <script src="landing/js/auth.js"></script>
-    <script src="landing/js/main.js"></script>
-    <script src="landing/js/nav.js"></script>
-    <script src="landing/js/slide.js"></script>
-    <script src="landing/js/profile.js"></script>
+    <!--- My Scripts --> 
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/slide.js"></script>
+    <script src="js/profile.js"></script>
 </body>
 </html>
