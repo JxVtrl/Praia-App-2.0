@@ -322,4 +322,3 @@ function gratifyUser(user){
         console.log("Error getting document:", error);
     });
 }
-

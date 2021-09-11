@@ -32,7 +32,6 @@ function carrosselMove(){
             reverse = true
             carrosselMove()
         }
-        
     }
 }
 
