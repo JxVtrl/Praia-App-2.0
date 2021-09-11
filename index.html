@@ -12,7 +12,7 @@
     <!-- BoxIcons CSS -->
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <!-- Linked CSS -->
-    <link rel="stylesheet" href="css/main_style.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/profile.css">
     <link rel="stylesheet" href="css/carrossel.css">
@@ -123,6 +123,7 @@
                 <i class='bx bx-water' id="logo"></i>
                 <span class="logo_name">Praiano</span>
             </div>
+
             <ul class="nav-list">
                 <li class="nav-item">
                     <div id="picture-container">
@@ -132,7 +133,8 @@
                         <i class='bx bx-log-out hide' id="icon-logout" onclick="logout()"></i>
                     </div>
                 </li>
-                <li class="nav-item">
+
+                <li class="nav-item" onclick="home()">
                     <a href="#">
                         <i class='bx bx-collection nav-icon' ></i>
                         <span class="link_name">Home</span>
@@ -141,6 +143,7 @@
                         <li><a class="link_name" href="#">Home</a></li>
                     </ul>
                 </li>
+
                 <li class="nav-item" id="barraca-nav">
                     <div class="iocn-link">
                         <a href="#">
@@ -156,6 +159,7 @@
                         <li><a href="#">Consumo</a></li>
                     </ul>
                 </li>
+
                 <li class="nav-item" id="esportes-nav">
                     <div class="iocn-link">
                         <a href="#">
@@ -170,6 +174,7 @@
                         <li><a href="#">Criar rede</a></li>
                     </ul>
                 </li>
+
                 <li class="nav-item">
                     <a href="#">
                         <i class='bx bx-landscape nav-icon'></i>
@@ -179,7 +184,8 @@
                         <li><a class="link_name" href="#">Explorar</a></li>
                     </ul>
                 </li>
-                <li class="nav-item">
+
+                <li class="nav-item" onclick="profile()">
                     <a href="#">
                         <i class='bx bx-id-card nav-icon'></i>
                         <span class="link_name">Perfil</span>
@@ -188,6 +194,7 @@
                         <li><a class="link_name" href="#">Perfil</a></li>
                     </ul>
                 </li>
+
                 <li class="nav-item">
                     <a href="#">
                       <i class='bx bx-cog nav-icon'></i>
@@ -197,6 +204,7 @@
                       <li><a class="link_name" href="#">Ajustes</a></li>
                     </ul>
                 </li>
+
                 <li class="nav-item" id="newLogOutIcon">
                     <i class='bx bx-log-out nav-icon' onclick="logout()"></i>
                     <ul class="sub-menu">
@@ -237,8 +245,9 @@
                     <i class='bx bx-chat header-icon'></i>
                 </div>
             </header>
+            
             <!-- Home  -->
-            <div id="home" class="hide">
+            <div id="home" class="pages">
                 <div id="carrossel">
                     <div id="carrossel-container">
                         <section id="tempo-card" class="card">
@@ -284,8 +293,16 @@
                 <!-- ... -->
             </div>
 
+            <!-- Barracas -->
+
+            <!-- Esportes -->
+
+            <!-- Explorar -->
+
+            <!-- Notícias -->
+
             <!-- Profile -->
-            <div id="profile">
+            <div id="profile" class="pages">
                 <div id="profile-container">
                     <h1>Geral da conta</h1>
                     <div id="profile-img-container">
@@ -321,6 +338,8 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Config -->
 
             
         </main>
