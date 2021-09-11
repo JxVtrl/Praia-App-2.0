@@ -1,4 +1,6 @@
-/* Profile Page */
+/* ==================================== */
+/* Profile Page ====================== */
+/* ================================== */
 
 #profile{
     width: 100%;
@@ -17,10 +19,12 @@
 }
 
 #profile-container h1{
+    font-family: var(--font-main);
     font-size: 24px;
     font-weight: 600;
     text-align: left;
     width: 100%;
+    margin-bottom: 15px;
 }
 
 #profile-img{
@@ -48,6 +52,7 @@
 }
 
 .profile-label{
+    
     font-family: var(--font-secondary);
     font-size: 0.65rem;
     background-color: var(--secondary-color);
@@ -72,6 +77,24 @@
 
 .editarBtn:hover{
     background-color: rgb(238, 238, 238);
+}
+
+.enviarBtn{
+    width: 100px;
+    height: 35px;
+    font-family: var(--font-main);
+    background-color: var(--secondary-color);
+    border-color: rgb(100, 237, 116);
+    cursor: pointer;
+}
+
+.enviarBtn:disabled{
+    width: 100px;
+    height: 35px;
+    font-family: var(--font-main);
+    background-color: var(--secondary-color);
+    border-color: cornflowerblue;
+    cursor: pointer;
 }
 
     
