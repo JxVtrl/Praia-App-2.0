@@ -37,7 +37,6 @@ img{
 }
 
 body{
-    background-color: var(--main-color);
     width: 100%;
 
     overflow: hidden;
@@ -54,6 +53,10 @@ input:focus{
 
 .hide{
     display: none;
+}
+
+.active{
+    display: block;
 }
 
 /* ================================= */
