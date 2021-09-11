@@ -33,8 +33,14 @@ window.addEventListener("load", function(){
 
         if (user) {
             // User is signed in.
-            gratifyUser(user);
-                setTimeout(()=>{
+            setTimeout(()=>{
+                // Coleta no banco de dados o usuario logado
+                db.collection('usuários').doc(user.email).get().then((doc) => {
+                    if(doc.exists){
+                        console.log('Logado como: ', doc.data().username);
+                    }
+                })
+                    gratifyUser(user);
                     landing.style.display = "none";
                     pageLoad.style.display = "flex";
                 }, 2000)
@@ -301,7 +307,7 @@ function gratifyUser(user){
 
         // Se ele achar o documento do usuário
         if (doc.exists) {
-            console.log("Document data:", doc.data());
+            // console.log("Document data:", doc.data());
 
             if(hour >= 5 && hour < 12) {
                 greeting_span.innerHTML = `Bom dia`
