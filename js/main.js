@@ -24,3 +24,20 @@ function getTimeNow(){
 }
 
 
+////////////////////////////
+// Pages //////////////////
+//////////////////////////
+
+function home(){
+    document.querySelectorAll('.pages').forEach(link => {
+        link.classList.add('hide')
+    })
+    document.getElementById('home').classList.remove('hide');
+}
+
+function profile(){
+    document.querySelectorAll('.pages').forEach(link => {
+        link.classList.add('hide')
+    })
+    document.getElementById('profile').classList.remove('hide');
+}
